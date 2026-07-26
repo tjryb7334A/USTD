@@ -12,8 +12,8 @@
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#090D12',
-                        cardBg: '#121821',
+                        darkBg: '#070A0F',
+                        cardBg: '#0F151E',
                         accentBlue: '#00D1FF',
                         accentGreen: '#00FF66',
                         accentGold: '#FFD700'
@@ -29,6 +29,17 @@
     <style>
         body { font-family: 'Tajawal', 'Inter', sans-serif; }
         
+        /* Background Cyber Grid & Glow Effect */
+        .cyber-bg {
+            background-color: #070A0F;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 209, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 102, 0.06) 0%, transparent 40%),
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        }
+
         /* Scroll Animation Classes */
         .reveal-on-scroll {
             opacity: 0;
@@ -42,10 +53,10 @@
         }
     </style>
 </head>
-<body class="bg-darkBg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden">
+<body class="cyber-bg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden">
 
     <!-- Header / Navbar -->
-    <header class="bg-cardBg/90 backdrop-blur-md border-b border-gray-800/80 sticky top-0 z-50">
+    <header class="bg-cardBg/80 backdrop-blur-xl border-b border-gray-800/60 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center space-x-3 space-x-reverse cursor-pointer">
@@ -78,11 +89,11 @@
             <!-- Mobile Menu Button -->
             <div class="flex md:hidden items-center space-x-3 space-x-reverse">
                 <!-- زر اللغة للموبايل مع كرة أرضية -->
-                <button onclick="toggleLanguage()" class="px-3.5 py-2 rounded-lg bg-gray-800 border border-gray-700 text-xs font-bold flex items-center gap-1.5">
+                <button onclick="toggleLanguage()" class="px-3.5 py-2 rounded-lg bg-gray-800/80 border border-gray-700 text-xs font-bold flex items-center gap-1.5">
                     <i class="fa-solid fa-globe text-accentBlue"></i>
                     <span id="langTextMobile">EN</span>
                 </button>
-                <button onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-accentGreen text-lg">
+                <button onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-gray-800/80 border border-gray-700 flex items-center justify-center text-accentGreen text-lg">
                     <i class="fa-solid fa-bars" id="menuIcon"></i>
                 </button>
             </div>
@@ -90,7 +101,7 @@
     </header>
 
     <!-- Mobile Side Drawer Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden">
+    <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-2xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden">
         <div class="space-y-6 pt-16">
             <div class="flex items-center justify-between pb-4 border-b border-gray-800">
                 <span class="text-lg font-black bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" data-ar="القائمة الرئيسية" data-en="Main Menu">القائمة الرئيسية</span>
@@ -125,12 +136,12 @@
         <!-- ================= HERO SECTION ================= -->
         <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center pt-4 sm:pt-6 reveal-on-scroll">
             <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-right">
-                <!-- تم تنسيق شارة الحد الأدنى وتوسيع مساحتها لتظهر بشكل مريح -->
-                <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-accentGreen/10 border border-accentGreen/30 text-accentGreen text-xs sm:text-sm font-bold tracking-wide shadow-sm">
+                <!-- شارة الحد الأدنى منسقة وواضحة -->
+                <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-accentGreen/10 border border-accentGreen/30 text-accentGreen text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-accentGreen/5">
                     <i class="fa-solid fa-shield-halved text-base"></i> 
                     <span data-ar="الحد الأدنى للاستثمار والسحب 5 USDT فقط" data-en="Min Investment & Withdrawal only 5 USDT">الحد الأدنى للاستثمار والسحب 5 USDT فقط</span>
                 </div>
-                <!-- تم ضبط الارتفاع وزيادة التباعد لكي لا يحدث تداخل أو اختفاء لأي كلمة -->
+                <!-- العنوان الرئيسي بخطوط واضحة ومسافات ممتازة لعدم التداخل -->
                 <h1 class="text-3xl sm:text-5xl font-black leading-[1.4] sm:leading-[1.3] py-2">
                     <span class="bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" data-ar="استثمر بذكاء واحصد أرباحك اليومية مع عوائد أسبوعية مضمونة" data-en="Invest smartly and reap your daily profits with guaranteed weekly returns">استثمر بذكاء واحصد أرباحك اليومية مع عوائد أسبوعية مضمونة</span>
                 </h1>
@@ -145,7 +156,7 @@
             </div>
 
             <!-- Calculator Box -->
-            <div id="calculator" class="lg:col-span-5 bg-cardBg border border-gray-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div id="calculator" class="lg:col-span-5 bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
                 <div class="absolute -top-24 -right-24 w-48 h-48 bg-accentGreen/10 rounded-full blur-3xl"></div>
                 <h3 class="text-lg sm:text-xl font-bold mb-6 flex items-center justify-between">
                     <span data-ar="حاسبة الأرباح اليومية والأسبوعية" data-en="Profit Calculator">حاسبة الأرباح اليومية والأسبوعية</span>
@@ -172,7 +183,7 @@
 
         <!-- ================= LIVE STATS CARDS SECTION ================= -->
         <section id="stats" class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 reveal-on-scroll">
-            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
+            <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
                 <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-calendar-days"></i>
                 </div>
@@ -181,7 +192,7 @@
                     <span id="statDays" class="text-xl sm:text-2xl font-black text-white">--</span>
                 </div>
             </div>
-            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
+            <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
                 <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-users"></i>
                 </div>
@@ -190,7 +201,7 @@
                     <span id="statInvestors" class="text-xl sm:text-2xl font-black text-accentGreen">--</span>
                 </div>
             </div>
-            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
+            <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
                 <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentGold/10 text-accentGold flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-money-bill-transfer"></i>
                 </div>
@@ -210,7 +221,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
                 <!-- Investment Plan Card -->
-                <div class="bg-cardBg border-2 border-accentGreen/50 rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-xl shadow-accentGreen/5 flex flex-col justify-between">
+                <div class="bg-cardBg/90 backdrop-blur-xl border-2 border-accentGreen/50 rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-xl shadow-accentGreen/5 flex flex-col justify-between">
                     <div>
                         <div class="absolute -top-3 sm:-top-4 right-6 sm:right-8 bg-accentGreen text-darkBg text-[11px] sm:text-xs font-black px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="الخطة الاستثمارية" data-en="Investment Plan">الخطة الاستثمارية</div>
                         <div class="space-y-2">
@@ -239,7 +250,7 @@
                 </div>
 
                 <!-- Free Plan Card -->
-                <div class="bg-cardBg border border-gray-800 rounded-3xl p-6 sm:p-8 space-y-6 relative flex flex-col justify-between">
+                <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800 rounded-3xl p-6 sm:p-8 space-y-6 relative flex flex-col justify-between">
                     <div>
                         <div class="absolute -top-3 sm:-top-4 right-6 sm:right-8 bg-accentBlue text-darkBg text-[11px] sm:text-xs font-black px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="بدون رأس مال" data-en="No Capital">بدون رأس مال</div>
                         <div class="space-y-2">
@@ -270,7 +281,7 @@
         </section>
 
         <!-- ================= WITHDRAWAL METHOD SECTION ================= -->
-        <section id="withdrawMethod" class="bg-cardBg border border-gray-800/80 rounded-3xl p-6 sm:p-12 text-center space-y-6 max-w-4xl mx-auto reveal-on-scroll">
+        <section id="withdrawMethod" class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-6 sm:p-12 text-center space-y-6 max-w-4xl mx-auto reveal-on-scroll">
             <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-2xl sm:text-3xl mx-auto shadow-lg shadow-accentGreen/10">
                 <i class="fa-solid fa-wallet"></i>
             </div>
@@ -289,7 +300,7 @@
         </section>
 
         <!-- ================= AI CHATBOT & TELEGRAM CONTACT SECTION ================= -->
-        <section id="supportSection" class="max-w-4xl mx-auto bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-10 space-y-8 shadow-2xl reveal-on-scroll">
+        <section id="supportSection" class="max-w-4xl mx-auto bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-10 space-y-8 shadow-2xl reveal-on-scroll">
             <div class="text-center space-y-2">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accentBlue/10 text-accentBlue text-xs font-bold">
                     <i class="fa-solid fa-robot"></i> <span data-ar="مساعد الذكاء الاصطناعي الذكي" data-en="AI Assistant Bot">مساعد الذكاء الاصطناعي الذكي</span>
@@ -342,7 +353,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-cardBg border-t border-gray-800/80 mt-16 sm:mt-20 py-8 reveal-on-scroll">
+    <footer class="bg-cardBg/90 border-t border-gray-800/80 mt-16 sm:mt-20 py-8">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-400 text-xs space-y-4 font-light">
             <p data-ar="جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="All rights reserved © 2026 CryptoYield - USDT TRC20 only.">جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20.</p>
             <div class="flex justify-center space-x-6 space-x-reverse">
