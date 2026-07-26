@@ -30,20 +30,20 @@
         body { font-family: 'Tajawal', 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-darkBg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black">
+<body class="bg-darkBg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden">
 
     <!-- Header / Navbar -->
     <header class="bg-cardBg/90 backdrop-blur-md border-b border-gray-800/80 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center space-x-3 space-x-reverse cursor-pointer">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-accentBlue to-accentGreen flex items-center justify-center text-darkBg font-black text-xl shadow-lg shadow-accentGreen/20">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-accentBlue to-accentGreen flex items-center justify-center text-darkBg font-black text-lg sm:text-xl shadow-lg shadow-accentGreen/20">
                     <i class="fa-solid fa-chart-line"></i>
                 </div>
-                <span class="text-2xl font-black tracking-wider bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent">CryptoYield</span>
+                <span class="text-xl sm:text-2xl font-black tracking-wider bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent">CryptoYield</span>
             </div>
 
-            <!-- Navigation Links -->
+            <!-- Desktop Navigation Links -->
             <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-medium text-sm">
                 <a href="#stats" class="text-gray-300 transition hover:text-accentGreen" data-ar="إحصائيات الموقع" data-en="Live Stats">إحصائيات الموقع</a>
                 <a href="#plans" class="text-gray-300 transition hover:text-accentGreen" data-ar="الخطط" data-en="Plans">الخطط</a>
@@ -52,7 +52,7 @@
             </nav>
 
             <!-- Language & Action Controls -->
-            <div class="flex items-center space-x-4 space-x-reverse">
+            <div class="hidden md:flex items-center space-x-4 space-x-reverse">
                 <button onclick="toggleLanguage()" class="px-3.5 py-2 rounded-xl bg-gray-800/80 border border-gray-700/80 text-xs font-bold hover:bg-gray-700 transition flex items-center gap-2">
                     <i class="fa-solid fa-globe text-accentBlue"></i>
                     <span id="langText">EN</span>
@@ -61,164 +61,195 @@
                     تسجيل الدخول
                 </a>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex md:hidden items-center space-x-3 space-x-reverse">
+                <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-lg bg-gray-800 border border-gray-700 text-xs font-bold">
+                    <span id="langTextMobile">EN</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-accentGreen text-lg">
+                    <i class="fa-solid fa-bars" id="menuIcon"></i>
+                </button>
+            </div>
         </div>
     </header>
 
+    <!-- Mobile Side Drawer Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden">
+        <div class="space-y-6 pt-16">
+            <div class="flex items-center justify-between pb-4 border-b border-gray-800">
+                <span class="text-lg font-black bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent">القائمة الرئيسية</span>
+                <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-xl bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4 font-bold text-base">
+                <a href="#stats" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-accentGreen py-2 border-b border-gray-800/50" data-ar="إحصائيات الموقع" data-en="Live Stats">إحصائيات الموقع</a>
+                <a href="#plans" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-accentGreen py-2 border-b border-gray-800/50" data-ar="الخطط" data-en="Plans">الخطط</a>
+                <a href="#calculator" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-accentGreen py-2 border-b border-gray-800/50" data-ar="حاسبة الأرباح" data-en="Calculator">حاسبة الأرباح</a>
+                <a href="#withdrawMethod" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-accentGreen py-2 border-b border-gray-800/50" data-ar="طرق السحب" data-en="Payment Methods">طرق السحب</a>
+                <a href="#supportSection" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-accentGreen py-2 border-b border-gray-800/50" data-ar="الدعم والمساعد الذكي" data-en="Support & AI">الدعم والمساعد الذكي</a>
+            </nav>
+        </div>
+        <div class="space-y-4 pb-6">
+            <a href="login.html" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm text-center block shadow-lg shadow-accentGreen/20" data-ar="تسجيل الدخول" data-en="Sign In">
+                تسجيل الدخول
+            </a>
+        </div>
+    </div>
+
     <!-- Floating Telegram Support Button -->
-    <a href="https://t.me/YourAdminUsername" target="_blank" class="fixed bottom-6 left-6 z-50 bg-[#229ED9] text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition duration-300 group" title="الدعم الفني">
+    <a href="https://t.me/YourAdminUsername" target="_blank" class="fixed bottom-6 left-6 z-50 bg-[#229ED9] text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl shadow-2xl hover:scale-110 transition duration-300 group" title="الدعم الفني">
         <i class="fa-brands fa-telegram"></i>
-        <span class="absolute left-16 bg-cardBg border border-gray-700 text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-xl" data-ar="الدعم عبر تلجرام" data-en="Telegram Support">الدعم عبر تلجرام</span>
+        <span class="absolute left-16 bg-cardBg border border-gray-700 text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-xl hidden sm:block" data-ar="الدعم عبر تلجرام" data-en="Telegram Support">الدعم عبر تلجرام</span>
     </a>
 
     <!-- Main Content Container -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-24">
 
         <!-- ================= HERO SECTION ================= -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-6">
-            <div class="lg:col-span-7 space-y-8">
-                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-accentGreen/10 border border-accentGreen/20 text-accentGreen text-xs font-bold tracking-wide">
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center pt-4 sm:pt-6">
+            <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-right">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-accentGreen/10 border border-accentGreen/20 text-accentGreen text-[11px] sm:text-xs font-bold tracking-wide">
                     <i class="fa-solid fa-shield-halved"></i> <span data-ar="الحد الأدنى للاستثمار والسحب 5 USDT فقط" data-en="Min Investment & Withdrawal only 5 USDT">الحد الأدنى للاستثمار والسحب 5 USDT فقط</span>
                 </div>
-                <h1 class="text-4xl sm:text-5xl font-black leading-[1.3]">
+                <h1 class="text-3xl sm:text-5xl font-black leading-[1.3]">
                     <span class="bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" data-ar="استثمر بذكاء واحصد أرباحك اليومية مع عوائد أسبوعية مضمونة" data-en="Invest smartly and reap your daily profits with guaranteed weekly returns">استثمر بذكاء واحصد أرباحك اليومية مع عوائد أسبوعية مضمونة</span>
                 </h1>
-                <p class="text-gray-400 text-base leading-relaxed max-w-xl font-light" data-ar="ابدأ رحلة النجاح المالي معنا. خطط استثمارية مدروسة بأرباح يومية 5%، أو ابدأ مجاناً عبر المهام ونظام الإحالات القوي. السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="Start your financial success journey with us. Smart investment plans with 5% daily profits, or start for free via tasks.">
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-light" data-ar="ابدأ رحلة النجاح المالي معنا. خطط استثمارية مدروسة بأرباح يومية 5%، أو ابدأ مجاناً عبر المهام ونظام الإحالات القوي. السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="Start your financial success journey with us. Smart investment plans with 5% daily profits, or start for free via tasks.">
                     ابدأ رحلة النجاح المالي معنا. خطط استثمارية مدروسة بأرباح يومية 5%، أو ابدأ مجاناً عبر المهام ونظام الإحالات القوي. السحب والإيداع حصرياً عبر شبكة USDT TRC20.
                 </p>
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="login.html" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-base shadow-xl shadow-accentGreen/25 hover:opacity-90 transition flex items-center gap-3">
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+                    <a href="login.html" class="px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm sm:text-base shadow-xl shadow-accentGreen/25 hover:opacity-90 transition flex items-center justify-center gap-3">
                         <span data-ar="ابدأ الآن مجاناً" data-en="Get Started Free">ابدأ الآن مجاناً</span> <i class="fa-solid fa-arrow-left" id="heroArrow"></i>
                     </a>
-                    <a href="#plans" class="px-8 py-4 rounded-2xl bg-cardBg border border-gray-700/80 font-bold text-base hover:bg-gray-800 transition text-center" data-ar="استعرض الخطط" data-en="View Plans">
+                    <a href="#plans" class="px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-cardBg border border-gray-700/80 font-bold text-sm sm:text-base hover:bg-gray-800 transition text-center" data-ar="استعرض الخطط" data-en="View Plans">
                         استعرض الخطط
                     </a>
                 </div>
             </div>
 
             <!-- Calculator Box -->
-            <div id="calculator" class="lg:col-span-5 bg-cardBg border border-gray-800/80 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+            <div id="calculator" class="lg:col-span-5 bg-cardBg border border-gray-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
                 <div class="absolute -top-24 -right-24 w-48 h-48 bg-accentGreen/10 rounded-full blur-3xl"></div>
-                <h3 class="text-xl font-bold mb-6 flex items-center justify-between">
-                    <span data-ar="حاسبة الأرباح (اليومية والأسبوعية)" data-en="Profit Calculator">حاسبة الأرباح اليومية والأسبوعية</span>
-                    <span class="text-xs bg-darkBg border border-gray-700 text-accentGreen px-3 py-1.5 rounded-xl">USDT TRC20</span>
+                <h3 class="text-lg sm:text-xl font-bold mb-6 flex items-center justify-between">
+                    <span data-ar="حاسبة الأرباح اليومية والأسبوعية" data-en="Profit Calculator">حاسبة الأرباح اليومية والأسبوعية</span>
+                    <span class="text-[10px] sm:text-xs bg-darkBg border border-gray-700 text-accentGreen px-2.5 py-1 rounded-xl">TRC20</span>
                 </h3>
-                <div class="space-y-6">
+                <div class="space-y-5 sm:space-y-6">
                     <div>
                         <label class="block text-xs text-gray-400 mb-2 font-medium" data-ar="قيمة الاستثمار (الحد الأدنى 5 USDT)" data-en="Investment Amount (Min $5)">قيمة الاستثمار (الحد الأدنى 5 USDT)</label>
-                        <input type="number" id="calcAmount" value="10" min="5" class="w-full bg-darkBg border border-gray-700/80 rounded-xl px-4 py-3.5 text-white font-bold focus:outline-none focus:border-accentGreen" oninput="calculateProfit()">
+                        <input type="number" id="calcAmount" value="10" min="5" class="w-full bg-darkBg border border-gray-700/80 rounded-xl px-4 py-3 text-sm sm:text-base text-white font-bold focus:outline-none focus:border-accentGreen" oninput="calculateProfit()">
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-darkBg/80 border border-gray-800 p-4 rounded-2xl space-y-1">
-                            <span class="text-xs text-gray-400" data-ar="الربح اليومي (5%)" data-en="Daily Profit (5%)">الربح اليومي (5%)</span>
-                            <div id="dailyResult" class="text-xl font-black text-accentGreen">0.50 USDT</div>
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div class="bg-darkBg/80 border border-gray-800 p-3.5 sm:p-4 rounded-2xl space-y-1">
+                            <span class="text-[11px] sm:text-xs text-gray-400" data-ar="الربح اليومي (5%)" data-en="Daily Profit (5%)">الربح اليومي (5%)</span>
+                            <div id="dailyResult" class="text-lg sm:text-xl font-black text-accentGreen">0.50 USDT</div>
                         </div>
-                        <div class="bg-darkBg/80 border border-gray-800 p-4 rounded-2xl space-y-1">
-                            <span class="text-xs text-gray-400" data-ar="المجموع الأسبوعي" data-en="Weekly Total">المجموع الأسبوعي</span>
-                            <div id="weeklyResult" class="text-xl font-black text-accentBlue">3.50 USDT</div>
+                        <div class="bg-darkBg/80 border border-gray-800 p-3.5 sm:p-4 rounded-2xl space-y-1">
+                            <span class="text-[11px] sm:text-xs text-gray-400" data-ar="المجموع الأسبوعي" data-en="Weekly Total">المجموع الأسبوعي</span>
+                            <div id="weeklyResult" class="text-lg sm:text-xl font-black text-accentBlue">3.50 USDT</div>
                         </div>
                     </div>
-                    <a href="login.html" class="w-full py-3.5 rounded-xl bg-accentBlue text-darkBg font-extrabold hover:bg-accentBlue/90 transition text-sm text-center block shadow-lg shadow-accentBlue/20" data-ar="ابدأ الاستثمار بهذا المبلغ" data-en="Invest This Amount">
-                        ابدأ الاستثمار بهذا المبلغ
-                    </a>
                 </div>
             </div>
         </section>
 
         <!-- ================= LIVE STATS CARDS SECTION ================= -->
-        <section id="stats" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
-                <div class="w-14 h-14 rounded-2xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-2xl font-bold">
+        <section id="stats" class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-calendar-days"></i>
                 </div>
                 <div>
                     <span class="text-xs text-gray-400 block" data-ar="أيام عمل الموقع" data-en="Operating Days">أيام عمل الموقع</span>
-                    <span id="statDays" class="text-2xl font-black text-white">--</span>
+                    <span id="statDays" class="text-xl sm:text-2xl font-black text-white">--</span>
                 </div>
             </div>
-            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
-                <div class="w-14 h-14 rounded-2xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-2xl font-bold">
+            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-users"></i>
                 </div>
                 <div>
                     <span class="text-xs text-gray-400 block" data-ar="إجمالي المستثمرين" data-en="Total Investors">إجمالي المستثمرين</span>
-                    <span id="statInvestors" class="text-2xl font-black text-accentGreen">--</span>
+                    <span id="statInvestors" class="text-xl sm:text-2xl font-black text-accentGreen">--</span>
                 </div>
             </div>
-            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
-                <div class="w-14 h-14 rounded-2xl bg-accentGold/10 text-accentGold flex items-center justify-center text-2xl font-bold">
+            <div class="bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center space-x-4 space-x-reverse shadow-xl">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentGold/10 text-accentGold flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-money-bill-transfer"></i>
                 </div>
                 <div>
                     <span class="text-xs text-gray-400 block" data-ar="عمليات السحب اليومية" data-en="Daily Withdrawals">عمليات السحب اليومية</span>
-                    <span id="statWithdrawals" class="text-2xl font-black text-accentGold">--</span>
+                    <span id="statWithdrawals" class="text-xl sm:text-2xl font-black text-accentGold">--</span>
                 </div>
             </div>
         </section>
 
         <!-- ================= PLANS SECTION (Investment & Free) ================= -->
-        <section id="plans" class="space-y-10 pt-6">
+        <section id="plans" class="space-y-8 sm:space-y-10 pt-4">
             <div class="text-center space-y-3 max-w-2xl mx-auto">
-                <h2 class="text-3xl font-black" data-ar="خطط المنصة (الاستثمارية والمجانية)" data-en="Platform Plans (Investment & Free)">خطط المنصة (الاستثمارية والمجانية)</h2>
-                <p class="text-gray-400 text-sm font-light" data-ar="اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراُ وبكل سهولة." data-en="Choose the right plan for you and start earning profits immediately.">اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراُ وبكل سهولة.</p>
+                <h2 class="text-2xl sm:text-3xl font-black" data-ar="خطط المنصة (الاستثمارية والمجانية)" data-en="Platform Plans (Investment & Free)">خطط المنصة (الاستثمارية والمجانية)</h2>
+                <p class="text-gray-400 text-xs sm:text-sm font-light" data-ar="اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراُ وبكل سهولة." data-en="Choose the right plan for you and start earning profits immediately.">اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراُ وبكل سهولة.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
                 <!-- Investment Plan Card -->
-                <div class="bg-cardBg border-2 border-accentGreen/50 rounded-3xl p-8 space-y-6 relative shadow-xl shadow-accentGreen/5">
-                    <div class="absolute -top-4 right-8 bg-accentGreen text-darkBg text-xs font-black px-4 py-1.5 rounded-full uppercase" data-ar="الخطة الاستثمارية" data-en="Investment Plan">الخطة الاستثمارية</div>
+                <div class="bg-cardBg border-2 border-accentGreen/50 rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-xl shadow-accentGreen/5">
+                    <div class="absolute -top-3 sm:-top-4 right-6 sm:right-8 bg-accentGreen text-darkBg text-[11px] sm:text-xs font-black px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="الخطة الاستثمارية" data-en="Investment Plan">الخطة الاستثمارية</div>
                     <div class="space-y-2">
-                        <h3 class="text-2xl font-black text-accentGreen" data-ar="خطة الاستثمار الذكي" data-en="Smart Investment Plan">خطة الاستثمار الذكي</h3>
-                        <p class="text-gray-400 text-sm" data-ar="عوائد يومية مدروسة بنسبة 5% مع نظام إحالات مربح." data-en="Smart 5% daily returns with a profitable referral system.">عوائد يومية مدروسة بنسبة 5% مع نظام إحالات مربح.</p>
+                        <h3 class="text-xl sm:text-2xl font-black text-accentGreen" data-ar="خطة الاستثمار الذكي" data-en="Smart Investment Plan">خطة الاستثمار الذكي</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm" data-ar="عوائد يومية مدروسة بنسبة 5% مع نظام إحالات مربح." data-en="Smart 5% daily returns with a profitable referral system.">عوائد يومية مدروسة بنسبة 5% مع نظام إحالات مربح.</p>
                     </div>
-                    <div class="bg-darkBg/80 p-5 rounded-2xl border border-gray-800 space-y-3">
-                        <div class="flex justify-between text-sm">
+                    <div class="bg-darkBg/80 p-4 sm:p-5 rounded-2xl border border-gray-800 space-y-3">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="الحد الأدنى للإيداع:" data-en="Min Deposit:">الحد الأدنى للإيداع:</span>
                             <span class="font-bold text-white">5 USDT</span>
                         </div>
-                        <div class="flex justify-between text-sm">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="الربح اليومي:" data-en="Daily Profit:">الربح اليومي:</span>
                             <span class="font-bold text-accentGreen">5% يومياً</span>
                         </div>
-                        <div class="flex justify-between text-sm">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="ربح الإحالات:" data-en="Referral Bonus:">ربح الإحالات:</span>
                             <span class="font-bold text-accentGold">5% من استثمار الإحالة</span>
                         </div>
-                        <div class="flex justify-between text-sm">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="الحد الأدنى للسحب:" data-en="Min Withdrawal:">الحد الأدنى للسحب:</span>
                             <span class="font-bold text-accentBlue">5 USDT</span>
                         </div>
                     </div>
-                    <a href="login.html" class="w-full py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-extrabold hover:opacity-90 transition block text-center shadow-lg shadow-accentGreen/20" data-ar="اشترك في خطة الاستثمار" data-en="Join Investment Plan">
+                    <a href="login.html" class="w-full py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-extrabold text-sm sm:text-base hover:opacity-90 transition block text-center shadow-lg shadow-accentGreen/20" data-ar="اشترك في خطة الاستثمار" data-en="Join Investment Plan">
                         اشترك في خطة الاستثمار
                     </a>
                 </div>
 
                 <!-- Free Plan Card -->
-                <div class="bg-cardBg border border-gray-800 rounded-3xl p-8 space-y-6 relative">
-                    <div class="absolute -top-4 right-8 bg-accentBlue text-darkBg text-xs font-black px-4 py-1.5 rounded-full uppercase" data-ar="بدون رأس مال" data-en="No Capital">بدون رأس مال</div>
+                <div class="bg-cardBg border border-gray-800 rounded-3xl p-6 sm:p-8 space-y-6 relative">
+                    <div class="absolute -top-3 sm:-top-4 right-6 sm:right-8 bg-accentBlue text-darkBg text-[11px] sm:text-xs font-black px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="بدون رأس مال" data-en="No Capital">بدون رأس مال</div>
                     <div class="space-y-2">
-                        <h3 class="text-2xl font-black text-accentBlue" data-ar="الخطة المجانية والمهام" data-en="Free Plan & Tasks">الخطة المجانية والمهام</h3>
-                        <p class="text-gray-400 text-sm" data-ar="اربح مجاناً من خلال تنفيذ المهام ودعوة الأصدقاء عبر رابط الإحالة." data-en="Earn for free through tasks and inviting friends via referral links.">اربح مجاناً من خلال تنفيذ المهام ودعوة الأصدقاء عبر رابط الإحالة.</p>
+                        <h3 class="text-xl sm:text-2xl font-black text-accentBlue" data-ar="الخطة المجانية والمهام" data-en="Free Plan & Tasks">الخطة المجانية والمهام</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm" data-ar="اربح مجاناً من خلال تنفيذ المهام ودعوة الأصدقاء عبر رابط الإحالة." data-en="Earn for free through tasks and inviting friends via referral links.">اربح مجاناً من خلال تنفيذ المهام ودعوة الأصدقاء عبر رابط الإحالة.</p>
                     </div>
-                    <div class="bg-darkBg/80 p-5 rounded-2xl border border-gray-800 space-y-3">
-                        <div class="flex justify-between text-sm">
+                    <div class="bg-darkBg/80 p-4 sm:p-5 rounded-2xl border border-gray-800 space-y-3">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="أرباح المهام اليومية:" data-en="Daily Tasks Earnings:">أرباح المهام اليومية:</span>
                             <span class="font-bold text-white" data-ar="متجددة يومياً" data-en="Daily Renewed">متجددة يومياً</span>
                         </div>
-                        <div class="flex justify-between text-sm">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="ربح زائر الإحالة:" data-en="Referral Visit Bonus:">ربح زائر الإحالة:</span>
                             <span class="font-bold text-accentGreen">1 سنت لكل زائر مسجل</span>
                         </div>
-                        <div class="flex justify-between text-sm">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="عمولة استثمار الإحالة:" data-en="Referral Invest Commission:">عمولة استثمار الإحالة:</span>
                             <span class="font-bold text-accentGold">5% من أي إيداع</span>
                         </div>
-                        <div class="flex justify-between text-sm">
+                        <div class="flex justify-between text-xs sm:text-sm">
                             <span class="text-gray-400" data-ar="الحد الأدنى للسحب:" data-en="Min Withdrawal:">الحد الأدنى للسحب:</span>
                             <span class="font-bold text-accentBlue">5 USDT</span>
                         </div>
                     </div>
-                    <a href="login.html" class="w-full py-4 rounded-2xl bg-accentBlue text-darkBg font-extrabold hover:bg-accentBlue/90 transition block text-center shadow-lg shadow-accentBlue/20" data-ar="ابدأ الخطة المجانية" data-en="Start Free Plan">
+                    <a href="login.html" class="w-full py-3.5 sm:py-4 rounded-2xl bg-accentBlue text-darkBg font-extrabold text-sm sm:text-base hover:bg-accentBlue/90 transition block text-center shadow-lg shadow-accentBlue/20" data-ar="ابدأ الخطة المجانية" data-en="Start Free Plan">
                         ابدأ الخطة المجانية
                     </a>
                 </div>
@@ -226,52 +257,52 @@
         </section>
 
         <!-- ================= WITHDRAWAL METHOD SECTION ================= -->
-        <section id="withdrawMethod" class="bg-cardBg border border-gray-800/80 rounded-3xl p-8 sm:p-12 text-center space-y-6 max-w-4xl mx-auto">
-            <div class="w-16 h-16 rounded-3xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-3xl mx-auto shadow-lg shadow-accentGreen/10">
+        <section id="withdrawMethod" class="bg-cardBg border border-gray-800/80 rounded-3xl p-6 sm:p-12 text-center space-y-6 max-w-4xl mx-auto">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-2xl sm:text-3xl mx-auto shadow-lg shadow-accentGreen/10">
                 <i class="fa-solid fa-wallet"></i>
             </div>
-            <h2 class="text-3xl font-black" data-ar="طريقة الإيداع والسحب (USDT TRC20)" data-en="Deposit & Withdrawal Method (USDT TRC20)">طريقة الإيداع والسحب (USDT TRC20)</h2>
-            <p class="text-gray-400 text-sm max-w-xl mx-auto font-light leading-relaxed" data-ar="نعتمد حصرياً على شبكة تيثر (USDT عبر شبكة TRC20) لضمان السرعة العالية، الأمان التام، والرسوم المنعدمة تقريباً. الحد الأدنى للسحب والإيداع هو 5 USDT فقط." data-en="We rely exclusively on Tether (USDT via TRC20 network) to ensure high speed, absolute security, and almost zero fees. Min withdrawal and deposit is just 5 USDT.">
+            <h2 class="text-2xl sm:text-3xl font-black" data-ar="طريقة الإيداع والسحب (USDT TRC20)" data-en="Deposit & Withdrawal Method (USDT TRC20)">طريقة الإيداع والسحب (USDT TRC20)</h2>
+            <p class="text-gray-400 text-xs sm:text-sm max-w-xl mx-auto font-light leading-relaxed" data-ar="نعتمد حصرياً على شبكة تيثر (USDT عبر شبكة TRC20) لضمان السرعة العالية، الأمان التام، والرسوم المنعدمة تقريباً. الحد الأدنى للسحب والإيداع هو 5 USDT فقط." data-en="We rely exclusively on Tether (USDT via TRC20 network) to ensure high speed, absolute security, and almost zero fees. Min withdrawal and deposit is just 5 USDT.">
                 نعتمد حصرياً على شبكة تيثر (USDT عبر شبكة TRC20) لضمان السرعة العالية، الأمان التام، والرسوم المنعدمة تقريباً. الحد الأدنى للسحب والإيداع هو 5 USDT فقط.
             </p>
-            <div class="pt-4 flex justify-center gap-4">
-                <span class="px-5 py-2.5 rounded-xl bg-darkBg border border-gray-700 text-xs font-bold text-accentGreen flex items-center gap-2">
+            <div class="pt-2 flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 rounded-xl bg-darkBg border border-gray-700 text-xs font-bold text-accentGreen flex items-center gap-2">
                     <i class="fa-solid fa-check"></i> <span data-ar="سحب فوري وأسبوعي" data-en="Instant & Weekly Payouts">سحب فوري وأسبوعي</span>
                 </span>
-                <span class="px-5 py-2.5 rounded-xl bg-darkBg border border-gray-700 text-xs font-bold text-accentBlue flex items-center gap-2">
+                <span class="px-4 py-2 rounded-xl bg-darkBg border border-gray-700 text-xs font-bold text-accentBlue flex items-center gap-2">
                     <i class="fa-solid fa-check"></i> <span data-ar="الحد الأدنى 5 USDT" data-en="Min Limit 5 USDT">الحد الأدنى 5 USDT</span>
                 </span>
             </div>
         </section>
 
         <!-- ================= AI CHATBOT & TELEGRAM CONTACT SECTION ================= -->
-        <section class="max-w-4xl mx-auto bg-cardBg border border-gray-800/80 rounded-3xl p-6 sm:p-10 space-y-8 shadow-2xl">
+        <section id="supportSection" class="max-w-4xl mx-auto bg-cardBg border border-gray-800/80 rounded-3xl p-5 sm:p-10 space-y-8 shadow-2xl">
             <div class="text-center space-y-2">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accentBlue/10 text-accentBlue text-xs font-bold">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accentBlue/10 text-accentBlue text-xs font-bold">
                     <i class="fa-solid fa-robot"></i> <span data-ar="مساعد الذكاء الاصطناعي الذكي" data-en="AI Assistant Bot">مساعد الذكاء الاصطناعي الذكي</span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-black" data-ar="اسأل المساعد الذكي عن المنصة" data-en="Ask the AI Assistant">اسأل المساعد الذكي عن المنصة</h2>
+                <h2 class="text-xl sm:text-3xl font-black" data-ar="اسأل المساعد الذكي عن المنصة" data-en="Ask the AI Assistant">اسأل المساعد الذكي عن المنصة</h2>
                 <p class="text-gray-400 text-xs sm:text-sm" data-ar="اختر أحد الأسئلة أدناه ليعطيك المساعد الإجابة الفورية بالتفصيل." data-en="Choose a question below to get an instant answer.">اختر أحد الأسئلة أدناه ليعطيك المساعد الإجابة الفورية بالتفصيل.</p>
             </div>
 
             <!-- Chatbot Screen Area -->
-            <div class="bg-darkBg border border-gray-800/80 rounded-2xl p-6 min-h-[160px] flex items-center justify-center text-center relative">
-                <div id="botResponse" class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            <div class="bg-darkBg border border-gray-800/80 rounded-2xl p-5 sm:p-6 min-h-[140px] flex items-center justify-center text-center relative">
+                <div id="botResponse" class="text-gray-300 text-xs sm:text-base leading-relaxed">
                     👋 أهلاً بك! أنا مساعد الذكاء الاصطناعي الخاص بالمنصة. اضغط على أي زر من الأسئلة في الأسفل لأقوم بإجابتك فوراً.
                 </div>
             </div>
 
             <!-- Chatbot Buttons Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <button onclick="botAnswer('howItWorks')" class="px-4 py-3.5 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentBlue hover:text-darkBg transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-circle-question text-accentBlue group-hover:text-darkBg"></i>
+                <button onclick="botAnswer('howItWorks')" class="px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentBlue hover:text-darkBg transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-circle-question text-accentBlue"></i>
                     <span data-ar="كيف العمل على الموقع؟" data-en="How it works?">كيف العمل على الموقع؟</span>
                 </button>
-                <button onclick="botAnswer('investPlan')" class="px-4 py-3.5 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentGreen hover:text-darkBg transition flex items-center justify-center gap-2">
+                <button onclick="botAnswer('investPlan')" class="px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentGreen hover:text-darkBg transition flex items-center justify-center gap-2">
                     <i class="fa-solid fa-chart-pie text-accentGreen"></i>
                     <span data-ar="نظام الاستثمار والأرباح" data-en="Investment Plan">نظام الاستثمار والأرباح</span>
                 </button>
-                <button onclick="botAnswer('withdrawInfo')" class="px-4 py-3.5 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentGold hover:text-darkBg transition flex items-center justify-center gap-2">
+                <button onclick="botAnswer('withdrawInfo')" class="px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentGold hover:text-darkBg transition flex items-center justify-center gap-2">
                     <i class="fa-solid fa-wallet text-accentGold"></i>
                     <span data-ar="تفاصيل السحب والإيداع" data-en="Withdrawal Info">تفاصيل السحب والإيداع</span>
                 </button>
@@ -281,14 +312,14 @@
 
             <!-- Telegram Contacts (Admin & Group) -->
             <div class="text-center space-y-4">
-                <h3 class="text-lg font-bold" data-ar="قنوات التواصل الرسمية على تلجرام" data-en="Official Telegram Channels">قنوات التواصل الرسمية على تلجرام</h3>
-                <div class="flex flex-wrap justify-center gap-4 pt-2">
-                    <a href="https://t.me/YourAdminUsername" target="_blank" class="px-6 py-3.5 rounded-xl bg-[#229ED9] text-white font-bold text-sm shadow-lg shadow-blue-500/20 hover:opacity-90 transition flex items-center gap-2.5">
-                        <i class="fa-brands fa-telegram text-lg"></i>
+                <h3 class="text-base sm:text-lg font-bold" data-ar="قنوات التواصل الرسمية على تلجرام" data-en="Official Telegram Channels">قنوات التواصل الرسمية على تلجرام</h3>
+                <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-2">
+                    <a href="https://t.me/YourAdminUsername" target="_blank" class="px-6 py-3.5 rounded-xl bg-[#229ED9] text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20 hover:opacity-90 transition flex items-center justify-center gap-2.5">
+                        <i class="fa-brands fa-telegram text-base sm:text-lg"></i>
                         <span data-ar="حساب المشرف (الدعم الفني)" data-en="Admin Telegram">حساب المشرف (الدعم الفني)</span>
                     </a>
-                    <a href="https://t.me/YourTelegramGroup" target="_blank" class="px-6 py-3.5 rounded-xl bg-gray-800 border border-gray-700 text-white font-bold text-sm hover:bg-gray-700 transition flex items-center gap-2.5">
-                        <i class="fa-solid fa-users text-lg text-accentGreen"></i>
+                    <a href="https://t.me/YourTelegramGroup" target="_blank" class="px-6 py-3.5 rounded-xl bg-gray-800 border border-gray-700 text-white font-bold text-xs sm:text-sm hover:bg-gray-700 transition flex items-center justify-center gap-2.5">
+                        <i class="fa-solid fa-users text-base sm:text-lg text-accentGreen"></i>
                         <span data-ar="كروب التلجرام العام" data-en="Telegram Group">كروب التلجرام العام</span>
                     </a>
                 </div>
@@ -298,7 +329,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-cardBg border-t border-gray-800/80 mt-20 py-8">
+    <footer class="bg-cardBg border-t border-gray-800/80 mt-16 sm:mt-20 py-8">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-400 text-xs space-y-4 font-light">
             <p data-ar="جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="All rights reserved © 2026 CryptoYield - USDT TRC20 only.">جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20.</p>
             <div class="flex justify-center space-x-6 space-x-reverse">
@@ -312,24 +343,32 @@
     <script>
         let currentLang = 'ar';
 
+        // Toggle Mobile Menu Drawer
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            if(menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+                menu.classList.add('translate-x-0');
+                icon.className = "fa-solid fa-xmark";
+            } else {
+                menu.classList.remove('translate-x-0');
+                menu.classList.add('translate-x-full');
+                icon.className = "fa-solid fa-bars";
+            }
+        }
+
         // Dynamic Automated Stats Calculation Starting From Today (July 26, 2026)
         function initDynamicStats() {
-            // Base launch date: July 26, 2026
             const launchDate = new Date('2026-07-26T00:00:00');
             const today = new Date();
-            
-            // Calculate passed days (at least 1 day)
             let diffTime = today - launchDate;
             let daysPassed = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
             if(daysPassed < 1) daysPassed = 1;
 
-            // Investors: Starts at 50, increases by 10 each day
             let totalInvestors = 50 + ((daysPassed - 1) * 10);
-
-            // Daily Withdrawals: Fixed 5 users per day
             let dailyWithdrawals = 5;
 
-            // Render stats
             document.getElementById('statDays').innerText = daysPassed + (currentLang === 'ar' ? ' أيام' : ' Days');
             document.getElementById('statInvestors').innerText = totalInvestors.toLocaleString();
             document.getElementById('statWithdrawals').innerText = dailyWithdrawals + (currentLang === 'ar' ? ' أشخاص' : ' Users');
@@ -361,8 +400,8 @@
 
         function calculateProfit() {
             let amount = parseFloat(document.getElementById('calcAmount').value) || 0;
-            if(amount < 5) amount = 5; // Minimum 5
-            const daily = amount * 0.05; // 5% daily
+            if(amount < 5) amount = 5;
+            const daily = amount * 0.05;
             const weekly = daily * 7;
             document.getElementById('dailyResult').innerText = daily.toFixed(2) + " USDT";
             document.getElementById('weeklyResult').innerText = weekly.toFixed(2) + " USDT";
@@ -371,6 +410,7 @@
         function toggleLanguage() {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             document.getElementById('langText').innerText = currentLang === 'ar' ? 'EN' : 'AR';
+            document.getElementById('langTextMobile').innerText = currentLang === 'ar' ? 'EN' : 'AR';
             document.getElementById('htmlRoot').setAttribute('lang', currentLang);
             document.getElementById('htmlRoot').setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
             
@@ -391,7 +431,6 @@
             initDynamicStats();
         }
 
-        // Initialize on load
         calculateProfit();
         initDynamicStats();
     </script>
