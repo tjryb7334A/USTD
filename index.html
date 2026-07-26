@@ -65,8 +65,9 @@
 
             <!-- Language & Action Controls -->
             <div class="hidden md:flex items-center space-x-4 space-x-reverse">
+                <!-- زر اللغة مع كرة أرضية واضحة -->
                 <button onclick="toggleLanguage()" class="px-3.5 py-2 rounded-xl bg-gray-800/80 border border-gray-700/80 text-xs font-bold hover:bg-gray-700 transition flex items-center gap-2">
-                    <i class="fa-solid fa-globe text-accentBlue"></i>
+                    <i class="fa-solid fa-globe text-accentBlue text-base"></i>
                     <span id="langText">EN</span>
                 </button>
                 <a href="login.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm shadow-lg shadow-accentGreen/20 hover:opacity-90 transition" data-ar="تسجيل الدخول" data-en="Sign In">
@@ -76,7 +77,9 @@
 
             <!-- Mobile Menu Button -->
             <div class="flex md:hidden items-center space-x-3 space-x-reverse">
-                <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-lg bg-gray-800 border border-gray-700 text-xs font-bold">
+                <!-- زر اللغة للموبايل مع كرة أرضية -->
+                <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-gray-800 border border-gray-700 text-xs font-bold flex items-center gap-1.5">
+                    <i class="fa-solid fa-globe text-accentBlue"></i>
                     <span id="langTextMobile">EN</span>
                 </button>
                 <button onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-accentGreen text-lg">
@@ -90,7 +93,7 @@
     <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden">
         <div class="space-y-6 pt-16">
             <div class="flex items-center justify-between pb-4 border-b border-gray-800">
-                <span class="text-lg font-black bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent">القائمة الرئيسية</span>
+                <span class="text-lg font-black bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" data-ar="القائمة الرئيسية" data-en="Main Menu">القائمة الرئيسية</span>
                 <button onclick="toggleMobileMenu()" class="w-9 h-9 rounded-xl bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
@@ -218,11 +221,11 @@
                             </div>
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="الربح اليومي:" data-en="Daily Profit:">الربح اليومي:</span>
-                                <span class="font-bold text-accentGreen">5% يومياً</span>
+                                <span class="font-bold text-accentGreen" data-ar="5% يومياً" data-en="5% Daily">5% يومياً</span>
                             </div>
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="ربح الإحالات:" data-en="Referral Bonus:">ربح الإحالات:</span>
-                                <span class="font-bold text-accentGold">5% من استثمار الإحالة</span>
+                                <span class="font-bold text-accentGold" data-ar="5% من استثمار الإحالة" data-en="5% of referral investment">5% من استثمار الإحالة</span>
                             </div>
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="الحد الأدنى للسحب:" data-en="Min Withdrawal:">الحد الأدنى للسحب:</span>
@@ -247,11 +250,11 @@
                             </div>
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="ربح زائر الإحالة:" data-en="Referral Visit Bonus:">ربح زائر الإحالة:</span>
-                                <span class="font-bold text-accentGreen">1 سنت لكل زائر مسجل</span>
+                                <span class="font-bold text-accentGreen" data-ar="1 سنت لكل زائر مسجل" data-en="$0.01 per registered visitor">1 سنت لكل زائر مسجل</span>
                             </div>
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="عمولة استثمار الإحالة:" data-en="Referral Invest Commission:">عمولة استثمار الإحالة:</span>
-                                <span class="font-bold text-accentGold">5% من أي إيداع</span>
+                                <span class="font-bold text-accentGold" data-ar="5% من أي إيداع" data-en="5% of any deposit">5% من أي إيداع</span>
                             </div>
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="الحد الأدنى للسحب:" data-en="Min Withdrawal:">الحد الأدنى للسحب:</span>
@@ -294,7 +297,7 @@
 
             <!-- Chatbot Screen Area -->
             <div class="bg-darkBg border border-gray-800/80 rounded-2xl p-5 sm:p-6 min-h-[140px] flex items-center justify-center text-center relative">
-                <div id="botResponse" class="text-gray-300 text-xs sm:text-base leading-relaxed">
+                <div id="botResponse" class="text-gray-300 text-xs sm:text-base leading-relaxed" data-ar="👋 أهلاً بك! أنا مساعد الذكاء الاصطناعي الخاص بالمنصة. اضغط على أي زر من الأسئلة في الأسفل لأقوم بإجابتك فوراً." data-en="👋 Welcome! I am the platform's AI assistant. Click any question button below to get an instant answer.">
                     👋 أهلاً بك! أنا مساعد الذكاء الاصطناعي الخاص بالمنصة. اضغط على أي زر من الأسئلة في الأسفل لأقوم بإجابتك فوراً.
                 </div>
             </div>
@@ -348,7 +351,34 @@
 
     <!-- JavaScript Logic -->
     <script>
-        let currentLang = 'ar';
+        let currentLang = localStorage.getItem('siteLang') || 'ar';
+
+        // Apply initial language settings on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            applyLanguageSettings();
+            initDynamicStats();
+            calculateProfit();
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                    } else {
+                        entry.target.classList.remove('reveal-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+                observer.observe(section);
+            });
+        });
 
         // Toggle Mobile Menu Drawer
         function toggleMobileMenu() {
@@ -414,51 +444,28 @@
             document.getElementById('weeklyResult').innerText = weekly.toFixed(2) + ' USDT';
         }
 
-        // Language Toggle Logic
+        // Toggle Language and Save to localStorage
         function toggleLanguage() {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            localStorage.setItem('siteLang', currentLang);
+            applyLanguageSettings();
+            initDynamicStats();
+        }
+
+        // Apply Language Settings across elements
+        function applyLanguageSettings() {
             document.getElementById('htmlRoot').setAttribute('lang', currentLang);
             document.getElementById('htmlRoot').setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
             document.getElementById('langText').innerText = currentLang === 'ar' ? 'EN' : 'AR';
             document.getElementById('langTextMobile').innerText = currentLang === 'ar' ? 'EN' : 'AR';
             
-            // Toggle data-ar and data-en elements
             document.querySelectorAll('[data-ar]').forEach(el => {
                 const text = el.getAttribute(`data-${currentLang}`);
                 if (text) {
                     el.innerText = text;
                 }
             });
-
-            initDynamicStats();
         }
-
-        // Scroll Animation Observer Setup (Works for both scrolling down and up)
-        document.addEventListener("DOMContentLoaded", () => {
-            initDynamicStats();
-            calculateProfit();
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal-visible');
-                    } else {
-                        // Optional: remove class if you want animation to re-trigger when scrolling back up/down
-                        entry.target.classList.remove('reveal-visible');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal-on-scroll').forEach(section => {
-                observer.observe(section);
-            });
-        });
     </script>
 </body>
 </html>
