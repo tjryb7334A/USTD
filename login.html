@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title id="pageTitle">CryptoYield - تسجيل الدخول وإنشاء الحساب</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,48 +23,45 @@
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ====== الإعدادات الأساسية ====== */
+        /* ====== إعادة ضبط ====== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
+        html, body {
+            height: 100%;
+            width: 100%;
             overflow-x: hidden;
-            scroll-behavior: smooth;
-            font-size: 16px;
         }
 
         body {
             font-family: 'Tajawal', 'Inter', sans-serif;
             background: #070A0F;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
             min-height: 100vh;
-            width: 100%;
-            max-width: 100vw;
-            position: relative;
+            min-height: 100dvh; /* Dynamic viewport height للهواتف */
         }
 
-        /* ====== خلفية مبسطة وسريعة ====== */
+        /* ====== خلفية ====== */
         .cyber-bg {
             background-color: #070A0F;
             background-image: 
-                radial-gradient(ellipse at 20% 30%, rgba(0, 209, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(0, 255, 102, 0.05) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.04) 0%, transparent 40%);
+                radial-gradient(ellipse at 20% 30%, rgba(0, 209, 255, 0.10) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(0, 255, 102, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.05) 0%, transparent 40%);
             background-size: 100% 100%, 100% 100%, 100% 100%;
-            position: relative;
-            min-height: 100vh;
-            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* ====== نجوم بسيطة بدون أنيميشن ثقيل ====== */
+        /* ====== نجوم خفيفة ====== */
         .cyber-bg::before {
             content: '';
             position: fixed;
@@ -84,7 +80,7 @@
             z-index: 0;
         }
 
-        /* ====== كرات خلفية بسيطة ====== */
+        /* ====== كرات خلفية ====== */
         .glow-orb {
             position: fixed;
             border-radius: 50%;
@@ -92,26 +88,24 @@
             pointer-events: none;
             z-index: 0;
         }
-
         .glow-orb-1 {
-            width: 200px;
-            height: 200px;
-            background: rgba(0, 209, 255, 0.1);
+            width: 150px;
+            height: 150px;
+            background: rgba(0, 209, 255, 0.10);
             top: -50px;
             right: -50px;
         }
-
         .glow-orb-2 {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             background: rgba(0, 255, 102, 0.07);
-            bottom: -100px;
-            left: -100px;
+            bottom: -80px;
+            left: -80px;
         }
 
         /* ====== Glass Card ====== */
         .glass-card {
-            background: rgba(15, 21, 30, 0.9);
+            background: rgba(15, 21, 30, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -119,35 +113,28 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            transition: all 0.3s ease;
         }
 
         /* ====== أنيميشن خفيف ====== */
         @keyframes fadeSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
-
         .animate-fade-up {
-            animation: fadeSlideUp 0.5s ease-out forwards;
+            animation: fadeSlideUp 0.4s ease-out forwards;
         }
 
-        /* ====== تحسين المدخلات ====== */
+        /* ====== المدخلات ====== */
         .input-field {
             background: rgba(7, 10, 15, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.2s ease;
             width: 100%;
-            font-size: 1rem !important;
-            padding: 0.75rem 2.75rem 0.75rem 1rem !important;
             border-radius: 12px;
             color: #fff;
+            font-size: 1rem !important;
+            padding: 0.85rem 2.75rem 0.85rem 1rem !important;
+            height: 50px;
         }
         .input-field:focus {
             border-color: #00FF66;
@@ -156,6 +143,7 @@
         }
         .input-field::placeholder {
             color: rgba(255, 255, 255, 0.25);
+            font-size: 0.9rem;
         }
 
         /* ====== علامة التبويب ====== */
@@ -164,11 +152,11 @@
             color: #070A0F;
             box-shadow: 0 0 20px rgba(0, 255, 102, 0.15);
         }
-
         .tab-btn {
             transition: all 0.2s ease;
-            font-size: 0.85rem !important;
-            padding: 0.65rem 0 !important;
+            font-size: 0.9rem !important;
+            padding: 0.7rem 0 !important;
+            border-radius: 10px;
         }
 
         /* ====== زر اللغة ====== */
@@ -178,7 +166,7 @@
             transition: all 0.2s ease;
             padding: 0.4rem 0.8rem;
             border-radius: 10px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             color: #9CA3AF;
             cursor: pointer;
@@ -192,62 +180,71 @@
             color: #00FF66;
         }
 
-        /* ====== تحسين النصوص ====== */
-        h1, h2, h3, p, span, a, div, button, li, input, label {
-            line-height: 1.6 !important;
+        /* ====== الأزرار ====== */
+        .btn-primary {
+            transition: all 0.2s ease;
+            border-radius: 12px;
+            height: 50px;
+            font-size: 1rem !important;
+            font-weight: 800 !important;
         }
 
-        label {
-            font-size: 0.8rem !important;
-        }
+        /* ====== ====== ====== التجاوب الكامل للهواتف ====== ====== ====== */
 
-        /* ====== تحسين التجاوب الكامل ====== */
-        /* هواتف صغيرة جداً */
+        /* هواتف صغيرة جداً (أقل من 380px) */
         @media (max-width: 380px) {
-            html { font-size: 14px; }
             .glass-card { padding: 1rem !important; border-radius: 16px; }
             .tab-btn { font-size: 0.7rem !important; padding: 0.5rem 0 !important; }
-            .input-field { font-size: 0.85rem !important; padding: 0.6rem 2.2rem 0.6rem 0.8rem !important; }
+            .input-field { font-size: 0.85rem !important; height: 44px; padding: 0.6rem 2.2rem 0.6rem 0.8rem !important; }
             .logo-text { font-size: 0.9rem !important; }
             .logo-icon { width: 28px !important; height: 28px !important; font-size: 0.7rem !important; }
             .lang-btn { font-size: 0.6rem; padding: 0.3rem 0.6rem; }
-            .btn-text { font-size: 0.75rem !important; }
+            .btn-primary { height: 44px; font-size: 0.85rem !important; }
+            label { font-size: 0.7rem !important; }
+            .tab-text { font-size: 0.65rem !important; }
+            .container-auth { padding-left: 0.5rem; padding-right: 0.5rem; }
         }
 
-        /* هواتف */
+        /* هواتف صغيرة (381px - 480px) */
         @media (min-width: 381px) and (max-width: 480px) {
-            html { font-size: 15px; }
             .glass-card { padding: 1.25rem !important; border-radius: 18px; }
-            .tab-btn { font-size: 0.75rem !important; padding: 0.55rem 0 !important; }
-            .input-field { font-size: 0.9rem !important; padding: 0.65rem 2.5rem 0.65rem 0.9rem !important; }
+            .tab-btn { font-size: 0.8rem !important; padding: 0.6rem 0 !important; }
+            .input-field { font-size: 0.9rem !important; height: 48px; padding: 0.7rem 2.5rem 0.7rem 0.9rem !important; }
             .logo-text { font-size: 1rem !important; }
             .logo-icon { width: 32px !important; height: 32px !important; font-size: 0.8rem !important; }
+            .btn-primary { height: 48px; font-size: 0.9rem !important; }
+            label { font-size: 0.75rem !important; }
+            .container-auth { padding-left: 0.6rem; padding-right: 0.6rem; }
         }
 
-        /* هواتف كبيرة وأجهزة لوحية صغيرة */
+        /* هواتف متوسطة وكبيرة (481px - 768px) */
         @media (min-width: 481px) and (max-width: 768px) {
-            html { font-size: 16px; }
             .glass-card { padding: 1.75rem !important; }
-            .tab-btn { font-size: 0.8rem !important; }
+            .tab-btn { font-size: 0.85rem !important; }
             .input-field { font-size: 0.95rem !important; }
+            .btn-primary { height: 50px; font-size: 0.95rem !important; }
+            .container-auth { padding-left: 1rem; padding-right: 1rem; }
         }
 
-        /* أجهزة لوحية */
+        /* أجهزة لوحية (769px - 1024px) */
         @media (min-width: 769px) and (max-width: 1024px) {
             .glass-card { padding: 2rem !important; }
+            .container-auth { padding-left: 1.5rem; padding-right: 1.5rem; }
         }
 
-        /* شاشات كبيرة */
+        /* شاشات كبيرة (1025px+) */
         @media (min-width: 1025px) {
             .glass-card { padding: 2.5rem !important; }
-            .input-field { font-size: 1rem !important; padding: 0.85rem 3rem 0.85rem 1.2rem !important; }
-            .tab-btn { font-size: 0.9rem !important; padding: 0.75rem 0 !important; }
+            .input-field { font-size: 1rem !important; height: 54px; }
+            .tab-btn { font-size: 0.95rem !important; padding: 0.8rem 0 !important; }
+            .btn-primary { height: 54px; font-size: 1rem !important; }
+            .container-auth { padding-left: 2rem; padding-right: 2rem; }
         }
 
-        /* ====== سكرول جميل ====== */
-        ::-webkit-scrollbar { width: 4px; }
+        /* ====== سكرول ====== */
+        ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-track { background: #070A0F; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #00FF66, #00D1FF); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #00FF66; border-radius: 10px; }
 
         /* ====== حاوية ====== */
         .container-auth {
@@ -257,65 +254,47 @@
             padding-right: 0.75rem;
         }
 
-        @media (min-width: 640px) {
-            .container-auth {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
-        }
-
         /* ====== تحديد النص ====== */
         ::selection {
             background: rgba(0, 255, 102, 0.2);
             color: #fff;
         }
 
-        /* ====== تحسين الأزرار ====== */
-        .btn-primary {
-            transition: all 0.2s ease;
-            font-size: 0.85rem !important;
-            padding: 0.75rem 1.5rem !important;
-            border-radius: 12px;
-        }
-
-        @media (max-width: 480px) {
-            .btn-primary {
-                font-size: 0.75rem !important;
-                padding: 0.65rem 1rem !important;
-            }
-        }
-
-        /* ====== تباعد العناصر ====== */
-        .form-spacing {
-            gap: 0.75rem;
-        }
-
-        @media (min-width: 640px) {
-            .form-spacing {
-                gap: 1rem;
-            }
-        }
-
-        /* ====== تحسين الأيقونات ====== */
+        /* ====== أيقونات المدخلات ====== */
         .icon-input {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.3);
         }
 
-        @media (max-width: 480px) {
-            .icon-input {
-                font-size: 0.75rem;
+        /* ====== تباعد النماذج ====== */
+        .form-group {
+            margin-bottom: 0.75rem;
+        }
+        @media (min-width: 640px) {
+            .form-group {
+                margin-bottom: 1rem;
             }
+        }
+
+        /* ====== ضمان ملء الشاشة ====== */
+        .flex-grow {
+            flex: 1;
+        }
+
+        .min-h-screen {
+            min-height: 100vh;
+            min-height: 100dvh;
         }
     </style>
 </head>
-<body class="cyber-bg text-white min-h-screen flex flex-col no-horizontal-scroll">
+<body class="cyber-bg text-white flex flex-col no-horizontal-scroll min-h-screen">
 
     <!-- ====== كرات الخلفية ====== -->
     <div class="glow-orb glow-orb-1"></div>
     <div class="glow-orb glow-orb-2"></div>
 
     <!-- ====== TOP BAR ====== -->
-    <header class="w-full py-3 sm:py-4 px-3 sm:px-6 flex justify-between items-center max-w-7xl mx-auto relative z-10">
+    <header class="w-full py-3 px-3 sm:px-6 flex justify-between items-center max-w-7xl mx-auto relative z-10 shrink-0">
         <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0">
             <div class="logo-icon w-8 h-8 sm:w-10 sm:h-10 rounded-2xl bg-gradient-to-tr from-accentBlue to-accentGreen flex items-center justify-center text-darkBg font-black text-xs sm:text-base shadow-lg shadow-accentGreen/20">
                 <i class="fa-solid fa-chart-line"></i>
@@ -323,7 +302,7 @@
             <span class="logo-text text-sm sm:text-lg font-black tracking-wider bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent">CryptoYield</span>
         </a>
         
-        <div class="flex items-center gap-2 sm:gap-3">
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
             <button onclick="toggleLanguage()" class="lang-btn" id="langToggle">
                 <i class="fa-solid fa-globe text-accentBlue"></i>
                 <span id="langText">EN</span>
@@ -336,8 +315,8 @@
     </header>
 
     <!-- ====== MAIN AUTH CONTAINER ====== -->
-    <main class="flex-grow flex items-center justify-center px-3 sm:px-4 py-4 sm:py-8 relative z-10 container-auth">
-        <div class="w-full max-w-md glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl animate-fade-up">
+    <main class="flex-grow flex items-center justify-center px-3 sm:px-4 py-4 sm:py-6 relative z-10 container-auth">
+        <div class="w-full max-w-md glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-2xl animate-fade-up">
             
             <!-- ====== TABS SWITCHER ====== -->
             <div class="flex rounded-xl bg-darkBg/50 p-1 mb-4 sm:mb-6 border border-gray-800/50">
@@ -351,24 +330,24 @@
 
             <!-- ====== LOGIN FORM ====== -->
             <form id="loginForm" class="space-y-3 sm:space-y-4" onsubmit="handleLogin(event)">
-                <div class="space-y-1">
+                <div class="space-y-1 form-group">
                     <label class="block text-xs sm:text-sm text-gray-400 font-medium">
                         <i class="fa-solid fa-user ml-1.5"></i> 
                         <span data-ar="اسم المستخدم" data-en="Username">اسم المستخدم</span>
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-500 icon-input"><i class="fa-solid fa-user"></i></span>
+                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center icon-input"><i class="fa-solid fa-user"></i></span>
                         <input type="text" id="loginUsername" required placeholder="أدخل اسم المستخدم" class="input-field">
                     </div>
                 </div>
 
-                <div class="space-y-1">
+                <div class="space-y-1 form-group">
                     <label class="block text-xs sm:text-sm text-gray-400 font-medium">
                         <i class="fa-solid fa-lock ml-1.5"></i> 
                         <span data-ar="كلمة المرور" data-en="Password">كلمة المرور</span>
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-500 icon-input"><i class="fa-solid fa-lock"></i></span>
+                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center icon-input"><i class="fa-solid fa-lock"></i></span>
                         <input type="password" id="loginPassword" required placeholder="••••••••" class="input-field">
                         <button type="button" onclick="togglePassword('loginPassword')" class="absolute inset-y-0 left-2 sm:left-3 flex items-center text-gray-500 hover:text-white transition text-sm">
                             <i class="fa-regular fa-eye"></i>
@@ -384,24 +363,24 @@
 
             <!-- ====== REGISTER FORM ====== -->
             <form id="registerForm" class="space-y-3 sm:space-y-4 hidden" onsubmit="handleRegister(event)">
-                <div class="space-y-1">
+                <div class="space-y-1 form-group">
                     <label class="block text-xs sm:text-sm text-gray-400 font-medium">
                         <i class="fa-solid fa-user ml-1.5"></i> 
                         <span data-ar="اسم المستخدم" data-en="Username">اسم المستخدم</span>
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-500 icon-input"><i class="fa-solid fa-user"></i></span>
+                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center icon-input"><i class="fa-solid fa-user"></i></span>
                         <input type="text" id="registerUsername" required placeholder="اختر اسم مستخدم" class="input-field">
                     </div>
                 </div>
 
-                <div class="space-y-1">
+                <div class="space-y-1 form-group">
                     <label class="block text-xs sm:text-sm text-gray-400 font-medium">
                         <i class="fa-solid fa-lock ml-1.5"></i> 
                         <span data-ar="كلمة المرور" data-en="Password">كلمة المرور</span>
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-500 icon-input"><i class="fa-solid fa-lock"></i></span>
+                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center icon-input"><i class="fa-solid fa-lock"></i></span>
                         <input type="password" id="registerPassword" required placeholder="••••••••" class="input-field">
                         <button type="button" onclick="togglePassword('registerPassword')" class="absolute inset-y-0 left-2 sm:left-3 flex items-center text-gray-500 hover:text-white transition text-sm">
                             <i class="fa-regular fa-eye"></i>
@@ -409,13 +388,13 @@
                     </div>
                 </div>
 
-                <div class="space-y-1">
+                <div class="space-y-1 form-group">
                     <label class="block text-xs sm:text-sm text-gray-400 font-medium">
                         <i class="fa-solid fa-check-circle ml-1.5"></i> 
                         <span data-ar="تأكيد كلمة المرور" data-en="Confirm Password">تأكيد كلمة المرور</span>
                     </label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center text-gray-500 icon-input"><i class="fa-solid fa-lock-open"></i></span>
+                        <span class="absolute inset-y-0 right-0 pr-3 sm:pr-4 flex items-center icon-input"><i class="fa-solid fa-lock-open"></i></span>
                         <input type="password" id="registerConfirmPassword" required placeholder="••••••••" class="input-field">
                         <button type="button" onclick="togglePassword('registerConfirmPassword')" class="absolute inset-y-0 left-2 sm:left-3 flex items-center text-gray-500 hover:text-white transition text-sm">
                             <i class="fa-regular fa-eye"></i>
@@ -442,7 +421,7 @@
     </main>
 
     <!-- ====== FOOTER ====== -->
-    <footer class="py-3 sm:py-5 text-center text-gray-500 text-[0.6rem] sm:text-xs relative z-10">
+    <footer class="py-3 sm:py-4 text-center text-gray-500 text-[0.6rem] sm:text-xs relative z-10 shrink-0">
         <p data-ar="جميع الحقوق محفوظة © 2026 CryptoYield" data-en="All rights reserved © 2026 CryptoYield">جميع الحقوق محفوظة © 2026 CryptoYield</p>
     </footer>
 
