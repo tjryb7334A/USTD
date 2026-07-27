@@ -34,110 +34,72 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Tajawal', 'Inter', sans-serif;
             line-height: 1.8;
             overflow-x: hidden !important;
             max-width: 100vw;
             width: 100%;
+            background: #070A0F;
+        }
+
+        /* ====== سكرول خفيف ====== */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070A0F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00FF66;
+            border-radius: 10px;
         }
 
         /* ====== تكبير الخط على الهواتف ====== */
         @media (max-width: 640px) {
-            html {
-                font-size: 18px !important;
-            }
-            body {
-                font-size: 17px !important;
-                line-height: 1.8 !important;
-            }
-            .hero-title {
-                font-size: 2.2rem !important;
-                line-height: 1.7 !important;
-            }
-            h1 {
-                font-size: 2.2rem !important;
-            }
-            h2 {
-                font-size: 1.8rem !important;
-            }
-            h3 {
-                font-size: 1.3rem !important;
-            }
-            p, li, span, a, button, label {
-                font-size: 1rem !important;
-                line-height: 1.8 !important;
-            }
-            .text-xs {
-                font-size: 0.85rem !important;
-            }
-            .text-sm {
-                font-size: 0.95rem !important;
-            }
-            .text-base {
-                font-size: 1.05rem !important;
-            }
-            .text-lg {
-                font-size: 1.25rem !important;
-            }
-            .text-xl {
-                font-size: 1.5rem !important;
-            }
-            .text-2xl {
-                font-size: 1.8rem !important;
-            }
-            .text-3xl {
-                font-size: 2rem !important;
-            }
-            /* تكبير الخط في الإنجليزية للهواتف */
-            html[lang="en"] body {
-                font-size: 17px !important;
-            }
-            html[lang="en"] .hero-title {
-                font-size: 2rem !important;
-            }
-            html[lang="en"] h1 {
-                font-size: 2rem !important;
-            }
+            html { font-size: 18px !important; }
+            body { font-size: 17px !important; line-height: 1.8 !important; }
+            .hero-title { font-size: 2.2rem !important; line-height: 1.7 !important; }
+            h1 { font-size: 2.2rem !important; }
+            h2 { font-size: 1.8rem !important; }
+            h3 { font-size: 1.3rem !important; }
+            p, li, span, a, button, label { font-size: 1rem !important; line-height: 1.8 !important; }
+            .text-xs { font-size: 0.85rem !important; }
+            .text-sm { font-size: 0.95rem !important; }
+            .text-base { font-size: 1.05rem !important; }
+            .text-lg { font-size: 1.25rem !important; }
+            .text-xl { font-size: 1.5rem !important; }
+            .text-2xl { font-size: 1.8rem !important; }
+            .text-3xl { font-size: 2rem !important; }
+            html[lang="en"] body { font-size: 17px !important; }
+            html[lang="en"] .hero-title { font-size: 2rem !important; }
+            html[lang="en"] h1 { font-size: 2rem !important; }
         }
 
         @media (max-width: 400px) {
-            html {
-                font-size: 17px !important;
-            }
-            body {
-                font-size: 16px !important;
-            }
-            .hero-title {
-                font-size: 1.8rem !important;
-            }
-            h1 {
-                font-size: 1.8rem !important;
-            }
+            html { font-size: 17px !important; }
+            body { font-size: 16px !important; }
+            .hero-title { font-size: 1.8rem !important; }
+            h1 { font-size: 1.8rem !important; }
         }
 
-        /* ====== خلفية متطورة ====== */
+        /* ====== خلفية مبسطة وسريعة ====== */
         .cyber-bg {
             background-color: #070A0F;
             background-image: 
-                radial-gradient(ellipse at 20% 50%, rgba(0, 209, 255, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(0, 255, 102, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 100%, rgba(255, 215, 0, 0.05) 0%, transparent 40%),
-                repeating-linear-gradient(45deg, 
-                    rgba(255,255,255,0.01) 0px, 
-                    rgba(255,255,255,0.01) 1px, 
-                    transparent 1px, 
-                    transparent 40px),
-                repeating-linear-gradient(-45deg, 
-                    rgba(255,255,255,0.01) 0px, 
-                    rgba(255,255,255,0.01) 1px, 
-                    transparent 1px, 
-                    transparent 40px);
-            background-size: 100% 100%, 100% 100%, 100% 100%, 80px 80px, 80px 80px;
+                radial-gradient(ellipse at 20% 50%, rgba(0, 209, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(0, 255, 102, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(255, 215, 0, 0.03) 0%, transparent 40%);
+            background-size: 100% 100%, 100% 100%, 100% 100%;
             min-height: 100vh;
             position: relative;
         }
 
+        /* ====== نجوم خفيفة (بدون أنيميشن ثقيل) ====== */
         .cyber-bg::before {
             content: '';
             position: fixed;
@@ -146,12 +108,12 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(2px 2px at 20% 30%, rgba(0, 209, 255, 0.3), transparent),
-                radial-gradient(2px 2px at 40% 70%, rgba(0, 255, 102, 0.2), transparent),
-                radial-gradient(2px 2px at 60% 20%, rgba(255, 215, 0, 0.2), transparent),
-                radial-gradient(2px 2px at 80% 80%, rgba(0, 209, 255, 0.2), transparent),
-                radial-gradient(2px 2px at 10% 90%, rgba(0, 255, 102, 0.15), transparent),
-                radial-gradient(2px 2px at 90% 10%, rgba(255, 215, 0, 0.15), transparent);
+                radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1.5px 1.5px at 40% 70%, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.25), transparent),
+                radial-gradient(1.5px 1.5px at 80% 80%, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1.5px 1.5px at 90% 10%, rgba(255,255,255,0.15), transparent);
             background-size: 100% 100%;
             pointer-events: none;
             z-index: 0;
@@ -163,7 +125,6 @@
             overflow: visible !important;
         }
 
-        /* ====== النص الرئيسي ====== */
         .hero-title {
             display: inline-block;
             padding: 8px 0;
@@ -173,7 +134,7 @@
             max-width: 100%;
         }
 
-        /* ====== إصلاح الناف بار ====== */
+        /* ====== الناف بار ====== */
         .nav-links {
             display: flex;
             gap: 1.5rem;
@@ -186,21 +147,13 @@
         }
 
         @media (max-width: 1024px) {
-            .nav-links a {
-                font-size: 0.75rem;
-            }
-            .nav-links {
-                gap: 1rem;
-            }
+            .nav-links a { font-size: 0.75rem; }
+            .nav-links { gap: 1rem; }
         }
-
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
         }
 
-        /* ====== تحسين التجاوب العام ====== */
         .container-responsive {
             width: 100%;
             max-width: 100vw;
@@ -208,7 +161,6 @@
             padding-left: 1rem;
             padding-right: 1rem;
         }
-
         @media (max-width: 640px) {
             .container-responsive {
                 padding-left: 0.75rem;
@@ -216,7 +168,6 @@
             }
         }
 
-        /* ====== تحسين الخط للإنجليزية ====== */
         html[lang="en"] body {
             font-family: 'Inter', 'Tajawal', sans-serif;
         }
@@ -225,11 +176,11 @@
             letter-spacing: -0.02em;
         }
 
-        /* ====== Scroll Animation ====== */
+        /* ====== Scroll Animation (خفيف) ====== */
         .reveal-on-scroll {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
             will-change: opacity, transform;
         }
         .reveal-visible {
@@ -237,49 +188,48 @@
             transform: translateY(0);
         }
 
-        /* ====== منع السكرول الأفقي ====== */
-        .overflow-x-hidden {
-            overflow-x: hidden !important;
-        }
-        .max-w-full {
-            max-width: 100% !important;
-        }
+        .overflow-x-hidden { overflow-x: hidden !important; }
+        .max-w-full { max-width: 100% !important; }
 
-        /* ====== تحسين البطاقات ====== */
+        /* ====== Glass Card (خفيف) ====== */
         .glass-card {
             background: rgba(15, 21, 30, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        /* ====== أزرار الخطط ====== */
+        /* ====== أزرار الخطط (خفيفة) ====== */
         .plan-btn {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
         }
         .plan-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 255, 102, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 255, 102, 0.2);
         }
         .plan-btn-free:hover {
-            box-shadow: 0 8px 25px rgba(0, 209, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 209, 255, 0.2);
         }
 
-        /* ====== تحسين الكروت ====== */
         .plan-card {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         .plan-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+        }
+
+        /* ====== تحسين الأداء ====== */
+        .no-animation {
+            animation: none !important;
         }
     </style>
 </head>
 <body class="cyber-bg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden max-w-full">
 
-    <!-- Header / Navbar -->
-    <header class="bg-cardBg/80 backdrop-blur-xl border-b border-gray-800/60 sticky top-0 z-50 w-full max-w-full overflow-x-hidden">
+    <!-- ====== HEADER / NAVBAR ====== -->
+    <header class="bg-cardBg/80 backdrop-blur-md border-b border-gray-800/60 sticky top-0 z-50 w-full max-w-full overflow-x-hidden">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center gap-2 sm:gap-3 shrink-0">
@@ -289,7 +239,7 @@
                 <span class="text-base sm:text-2xl font-black tracking-wider bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" style="display:inline-block; padding:4px 0;">CryptoYield</span>
             </div>
 
-            <!-- Desktop Navigation Links -->
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-4 lg:gap-8 font-medium">
                 <a href="#stats" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap text-xs lg:text-sm" data-ar="إحصائيات الموقع" data-en="Live Stats">إحصائيات الموقع</a>
                 <a href="#plans" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap text-xs lg:text-sm" data-ar="الخطط" data-en="Plans">الخطط</a>
@@ -297,7 +247,7 @@
                 <a href="#withdrawMethod" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap text-xs lg:text-sm" data-ar="طرق السحب" data-en="Payment Methods">طرق السحب</a>
             </nav>
 
-            <!-- Language & Action Controls -->
+            <!-- Language & Actions -->
             <div class="hidden md:flex items-center gap-2 lg:gap-4 shrink-0">
                 <button onclick="toggleLanguage()" class="px-3 py-1.5 lg:px-3.5 lg:py-2 rounded-xl bg-gray-800/80 border border-gray-700/80 text-xs font-bold hover:bg-gray-700 transition flex items-center gap-1.5 lg:gap-2">
                     <i class="fa-solid fa-globe text-accentBlue text-sm lg:text-base"></i>
@@ -308,7 +258,7 @@
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu -->
             <div class="flex md:hidden items-center gap-1.5 shrink-0">
                 <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-lg bg-gray-800/80 border border-gray-700 text-[10px] sm:text-xs font-bold flex items-center gap-1">
                     <i class="fa-solid fa-globe text-accentBlue text-xs"></i>
@@ -321,8 +271,8 @@
         </div>
     </header>
 
-    <!-- Mobile Side Drawer Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-2xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden w-full overflow-x-hidden">
+    <!-- ====== MOBILE MENU ====== -->
+    <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-md z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden w-full overflow-x-hidden">
         <div class="space-y-6 pt-16">
             <div class="flex items-center justify-between pb-4 border-b border-gray-800">
                 <span class="text-lg font-black bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" style="display:inline-block; padding:4px 0;" data-ar="القائمة الرئيسية" data-en="Main Menu">القائمة الرئيسية</span>
@@ -345,25 +295,25 @@
         </div>
     </div>
 
-    <!-- Floating Telegram Support Button -->
+    <!-- ====== TELEGRAM BUTTON ====== -->
     <a href="https://t.me/YourAdminUsername" target="_blank" class="fixed bottom-6 left-6 z-50 bg-[#229ED9] text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl shadow-2xl hover:scale-110 transition duration-300 group" title="الدعم الفني">
         <i class="fa-brands fa-telegram"></i>
         <span class="absolute left-16 bg-cardBg border border-gray-700 text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap shadow-xl hidden sm:block" data-ar="الدعم عبر تلجرام" data-en="Telegram Support">الدعم عبر تلجرام</span>
     </a>
 
-    <!-- Main Content Container -->
+    <!-- ====== MAIN CONTENT ====== -->
     <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12 space-y-12 sm:space-y-24 w-full max-w-full overflow-x-hidden">
 
-        <!-- ================= HERO SECTION ================= -->
+        <!-- ====== HERO SECTION ====== -->
         <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-center pt-2 sm:pt-6 reveal-on-scroll w-full max-w-full overflow-x-hidden">
             <div class="lg:col-span-7 space-y-4 sm:space-y-8 text-center lg:text-right w-full max-w-full">
-                <!-- شارة الحد الأدنى -->
+                <!-- Badge -->
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accentGreen/10 border border-accentGreen/30 text-accentGreen text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-accentGreen/5">
                     <i class="fa-solid fa-shield-halved text-xs sm:text-base"></i> 
                     <span data-ar="الحد الأدنى للاستثمار والسحب 5 دولار فقط" data-en="Min Investment & Withdrawal only 5 USDT" id="minLimitText">الحد الأدنى للاستثمار والسحب 5 دولار فقط</span>
                 </div>
                 
-                <!-- النص الرئيسي -->
+                <!-- Main Title -->
                 <h1 class="font-black py-2 w-full max-w-full">
                     <span class="bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent hero-title w-full" 
                           data-ar="استثمر بذكاء واحصد أرباحك اليومية مع عوائد أسبوعية مضمونة" 
@@ -383,7 +333,7 @@
                 </div>
             </div>
 
-            <!-- Calculator Box -->
+            <!-- Calculator -->
             <div id="calculator" class="lg:col-span-5 glass-card border border-gray-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden w-full max-w-full">
                 <div class="absolute -top-24 -right-24 w-48 h-48 bg-accentGreen/10 rounded-full blur-3xl"></div>
                 <h3 class="text-base sm:text-xl font-bold mb-4 sm:mb-6 flex items-center justify-between">
@@ -409,7 +359,7 @@
             </div>
         </section>
 
-        <!-- ================= LIVE STATS ================= -->
+        <!-- ====== STATS ====== -->
         <section id="stats" class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 reveal-on-scroll w-full max-w-full">
             <div class="glass-card border border-gray-800/80 rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 shadow-xl">
                 <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-base sm:text-2xl font-bold shrink-0">
@@ -440,7 +390,7 @@
             </div>
         </section>
 
-        <!-- ================= PLANS SECTION ================= -->
+        <!-- ====== PLANS ====== -->
         <section id="plans" class="space-y-6 sm:space-y-10 pt-2 sm:pt-4 reveal-on-scroll w-full max-w-full">
             <div class="text-center space-y-2 max-w-2xl mx-auto">
                 <h2 class="text-xl sm:text-3xl font-black" data-ar="خطط المنصة (الاستثمارية والمجانية)" data-en="Platform Plans (Investment & Free)">خطط المنصة (الاستثمارية والمجانية)</h2>
@@ -448,7 +398,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto w-full max-w-full">
-                <!-- Investment Plan Card -->
+                <!-- Investment Plan -->
                 <div class="plan-card glass-card border-2 border-accentGreen/50 rounded-3xl p-5 sm:p-8 space-y-6 relative shadow-xl shadow-accentGreen/5 flex flex-col justify-between">
                     <div>
                         <div class="absolute -top-3 sm:-top-4 right-4 sm:right-8 bg-accentGreen text-darkBg text-[10px] sm:text-xs font-black px-3 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="الخطة الاستثمارية" data-en="Investment Plan">الخطة الاستثمارية</div>
@@ -475,15 +425,14 @@
                             </div>
                         </div>
                     </div>
-                    <!-- زر التسجيل للخطة الاستثمارية -->
-                    <a href="login.html" class="plan-btn w-full py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm sm:text-base text-center block shadow-lg shadow-accentGreen/20 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 mt-4">
+                    <a href="login.html" class="plan-btn w-full py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm sm:text-base text-center block shadow-lg shadow-accentGreen/20 hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 mt-4">
                         <i class="fa-solid fa-rocket"></i>
                         <span data-ar="ابدأ الاستثمار الآن" data-en="Start Investing Now">ابدأ الاستثمار الآن</span>
                         <i class="fa-solid fa-arrow-left"></i>
                     </a>
                 </div>
 
-                <!-- Free Plan Card -->
+                <!-- Free Plan -->
                 <div class="plan-card glass-card border border-gray-800 rounded-3xl p-5 sm:p-8 space-y-6 relative flex flex-col justify-between">
                     <div>
                         <div class="absolute -top-3 sm:-top-4 right-4 sm:right-8 bg-accentBlue text-darkBg text-[10px] sm:text-xs font-black px-3 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="بدون رأس مال" data-en="No Capital">بدون رأس مال</div>
@@ -510,8 +459,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- زر التسجيل للخطة المجانية -->
-                    <a href="register.html" class="plan-btn plan-btn-free w-full py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-accentBlue to-cyan-500 text-darkBg font-bold text-sm sm:text-base text-center block shadow-lg shadow-accentBlue/20 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 mt-4">
+                    <a href="register.html" class="plan-btn plan-btn-free w-full py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-accentBlue to-cyan-500 text-darkBg font-bold text-sm sm:text-base text-center block shadow-lg shadow-accentBlue/20 hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 mt-4">
                         <i class="fa-solid fa-user-plus"></i>
                         <span data-ar="انضم مجاناً الآن" data-en="Join Free Now">انضم مجاناً الآن</span>
                         <i class="fa-solid fa-arrow-left"></i>
@@ -520,14 +468,14 @@
             </div>
         </section>
 
-        <!-- ================= WITHDRAWAL METHOD ================= -->
+        <!-- ====== WITHDRAWAL METHOD ====== -->
         <section id="withdrawMethod" class="glass-card border border-gray-800/80 rounded-3xl p-5 sm:p-12 text-center space-y-4 sm:space-y-6 max-w-4xl mx-auto reveal-on-scroll w-full max-w-full">
             <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-3xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-xl sm:text-3xl mx-auto shadow-lg shadow-accentGreen/10">
                 <i class="fa-solid fa-wallet"></i>
             </div>
             <h2 class="text-xl sm:text-3xl font-black" data-ar="طريقة الإيداع والسحب (USDT TRC20)" data-en="Deposit & Withdrawal Method (USDT TRC20)">طريقة الإيداع والسحب (USDT TRC20)</h2>
-            <p class="text-gray-400 text-xs sm:text-sm max-w-xl mx-auto font-light leading-[1.8]" data-ar="نعتمد حصرياً على شبكة تيثر (USDT عبر شبكة TRC20) لضمان السرعة العالية، الأمان التام، والرسوم المنعدمة تقريباً. الحد الأدنى للسحب والإيداع هو 5 USDT فقط." data-en="We rely exclusively on Tether (USDT via TRC20 network) to ensure high speed, absolute security, and almost zero fees. Min withdrawal and deposit is just 5 USDT.">
-                نعتمد حصرياً على شبكة تيثر (USDT عبر شبكة TRC20) لضمان السرعة العالية، الأمان التام، والرسوم المنعدمة تقريباً. الحد الأدنى للسحب والإيداع هو 5 USDT فقط.
+            <p class="text-gray-400 text-xs sm:text-sm max-w-xl mx-auto font-light leading-[1.8]" data-ar="يمكنك استلام أرباحك بكل سهولة عبر منصتي بايننس وتراست والت، مع إمكانية السحب الفوري لأرباحك اليومية والأسبوعية. نعتمد حصرياً على شبكة USDT TRC20 لضمان سرعة المعاملات وأمانها التام، مع رسوم شبه منعدمة. الحد الأدنى للسحب والإيداع هو 5 USDT فقط." data-en="You can easily receive your profits via Binance and Trust Wallet, with instant withdrawal of your daily and weekly earnings. We rely exclusively on USDT TRC20 network to ensure fast transactions, complete security, and almost zero fees. Minimum withdrawal and deposit is just 5 USDT.">
+                يمكنك استلام أرباحك بكل سهولة عبر منصتي بايننس وتراست والت، مع إمكانية السحب الفوري لأرباحك اليومية والأسبوعية. نعتمد حصرياً على شبكة USDT TRC20 لضمان سرعة المعاملات وأمانها التام، مع رسوم شبه منعدمة. الحد الأدنى للسحب والإيداع هو 5 دولار فقط.
             </p>
             <div class="pt-2 flex flex-wrap justify-center gap-2 sm:gap-3">
                 <span class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-darkBg border border-gray-700 text-[10px] sm:text-xs font-bold text-accentGreen flex items-center gap-1.5 sm:gap-2">
@@ -539,7 +487,7 @@
             </div>
         </section>
 
-        <!-- ================= AI CHATBOT ================= -->
+        <!-- ====== AI CHATBOT ====== -->
         <section id="supportSection" class="max-w-4xl mx-auto glass-card border border-gray-800/80 rounded-3xl p-4 sm:p-10 space-y-6 sm:space-y-8 shadow-2xl reveal-on-scroll w-full max-w-full">
             <div class="text-center space-y-2">
                 <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-accentBlue/10 text-accentBlue text-[10px] sm:text-xs font-bold">
@@ -589,7 +537,7 @@
 
     </main>
 
-    <!-- Footer -->
+    <!-- ====== FOOTER ====== -->
     <footer class="bg-cardBg/90 border-t border-gray-800/80 mt-12 sm:mt-20 py-6 sm:py-8 w-full max-w-full overflow-x-hidden">
         <div class="max-w-7xl mx-auto px-3 sm:px-4 text-center text-gray-400 text-[10px] sm:text-xs space-y-3 sm:space-y-4 font-light">
             <p data-ar="جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="All rights reserved © 2026 CryptoYield - USDT TRC20 only.">جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20.</p>
@@ -600,7 +548,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- ====== JAVASCRIPT ====== -->
     <script>
         let currentLang = localStorage.getItem('siteLang') || 'ar';
 
@@ -612,7 +560,7 @@
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.15
+                threshold: 0.1
             };
 
             const observer = new IntersectionObserver((entries) => {
