@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title id="pageTitle">CryptoYield - منصة الاستثمار والربح الرقمي</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,31 +25,158 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Tajawal', 'Inter', sans-serif; 
-            line-height: 1.8;
+        /* ====== الإعدادات الأساسية ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        /* إصلاح النصوص العربية */
+
+        body {
+            font-family: 'Tajawal', 'Inter', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden !important;
+            max-width: 100vw;
+            width: 100%;
+        }
+
+        /* ====== خلفية متطورة ====== */
+        .cyber-bg {
+            background-color: #070A0F;
+            background-image: 
+                radial-gradient(ellipse at 20% 50%, rgba(0, 209, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(0, 255, 102, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(255, 215, 0, 0.05) 0%, transparent 40%),
+                repeating-linear-gradient(45deg, 
+                    rgba(255,255,255,0.01) 0px, 
+                    rgba(255,255,255,0.01) 1px, 
+                    transparent 1px, 
+                    transparent 40px),
+                repeating-linear-gradient(-45deg, 
+                    rgba(255,255,255,0.01) 0px, 
+                    rgba(255,255,255,0.01) 1px, 
+                    transparent 1px, 
+                    transparent 40px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 80px 80px, 80px 80px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* تأثير الجسيمات المتوهجة */
+        .cyber-bg::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(2px 2px at 20% 30%, rgba(0, 209, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 40% 70%, rgba(0, 255, 102, 0.2), transparent),
+                radial-gradient(2px 2px at 60% 20%, rgba(255, 215, 0, 0.2), transparent),
+                radial-gradient(2px 2px at 80% 80%, rgba(0, 209, 255, 0.2), transparent),
+                radial-gradient(2px 2px at 10% 90%, rgba(0, 255, 102, 0.15), transparent),
+                radial-gradient(2px 2px at 90% 10%, rgba(255, 215, 0, 0.15), transparent);
+            background-size: 100% 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ====== إصلاح النصوص ====== */
         h1, h2, h3, p, span, a, div, button, li {
             line-height: 1.8 !important;
             overflow: visible !important;
         }
 
-        /* Background Cyber Grid & Glow Effect */
-        .cyber-bg {
-            background-color: #070A0F;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 209, 255, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 255, 102, 0.06) 0%, transparent 40%),
-                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        /* ====== النص الرئيسي المتجاوب ====== */
+        .hero-title {
+            display: inline-block;
+            padding: 8px 0;
+            line-height: 1.8 !important;
+            font-size: clamp(2rem, 5.5vw, 3.8rem);
+            word-break: break-word;
+            max-width: 100%;
         }
 
-        /* Scroll Animation Classes */
+        /* ====== إصلاح الناف بار ====== */
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+        .nav-links a {
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* ====== تحسين التجاوب العام ====== */
+        .container-responsive {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.8rem !important;
+                line-height: 1.6 !important;
+            }
+            .text-responsive {
+                font-size: 0.95rem !important;
+                line-height: 1.8 !important;
+            }
+            .container-responsive {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            /* تكبير الخط في الإنجليزية للموبايل */
+            html[lang="en"] .hero-title {
+                font-size: 1.6rem !important;
+            }
+            html[lang="en"] body {
+                font-size: 16px;
+            }
+        }
+
+        /* ====== تحسين الخط للإنجليزية ====== */
+        html[lang="en"] body {
+            font-family: 'Inter', 'Tajawal', sans-serif;
+            font-size: 17px;
+        }
+        html[lang="en"] .hero-title {
+            font-size: clamp(2.2rem, 5.5vw, 4rem);
+            letter-spacing: -0.02em;
+        }
+        html[lang="en"] .nav-links a {
+            font-size: 0.85rem;
+        }
+        html[lang="en"] h1, 
+        html[lang="en"] h2, 
+        html[lang="en"] h3 {
+            letter-spacing: -0.01em;
+        }
+
+        /* ====== Scroll Animation ====== */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -61,88 +188,84 @@
             transform: translateY(0);
         }
 
-        /* إصلاح النص الرئيسي */
-        .hero-title {
-            display: inline-block;
-            padding: 8px 0;
-            line-height: 1.8 !important;
-            font-size: clamp(1.8rem, 5vw, 3.5rem);
-            word-break: break-word;
+        /* ====== منع السكرول الأفقي ====== */
+        .overflow-x-hidden {
+            overflow-x: hidden !important;
+        }
+        .max-w-full {
+            max-width: 100% !important;
         }
 
-        /* إصلاح الناف بار عند التبديل للغة الإنجليزية */
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: nowrap;
-        }
-        .nav-links a {
-            white-space: nowrap;
+        /* ====== تحسين البطاقات ====== */
+        .glass-card {
+            background: rgba(15, 21, 30, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        @media (max-width: 1024px) {
-            .nav-links a {
-                font-size: 0.8rem;
-            }
+        /* ====== إصلاح الأزرار في الإنجليزية ====== */
+        html[lang="en"] .btn-text {
+            font-size: 0.85rem !important;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+        /* ====== منع تجاوز العناصر ====== */
+        .no-overflow {
+            overflow: hidden !important;
+            max-width: 100% !important;
         }
 
-        /* إصلاح النصوص في الموبايل */
-        @media (max-width: 640px) {
-            .hero-title {
-                font-size: 1.8rem !important;
-                line-height: 1.6 !important;
-            }
-            .text-responsive {
-                font-size: 0.9rem !important;
+        /* ====== تحسين التباعد ====== */
+        .section-spacing {
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .section-spacing {
+                margin-bottom: 3rem;
             }
         }
     </style>
 </head>
-<body class="cyber-bg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden">
+<body class="cyber-bg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden max-w-full">
 
     <!-- Header / Navbar -->
-    <header class="bg-cardBg/80 backdrop-blur-xl border-b border-gray-800/60 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <header class="bg-cardBg/80 backdrop-blur-xl border-b border-gray-800/60 sticky top-0 z-50 w-full max-w-full overflow-x-hidden">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
             <!-- Logo -->
-            <div class="flex items-center space-x-3 space-x-reverse cursor-pointer shrink-0">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-accentBlue to-accentGreen flex items-center justify-center text-darkBg font-black text-lg sm:text-xl shadow-lg shadow-accentGreen/20">
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <div class="w-8 h-8 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-accentBlue to-accentGreen flex items-center justify-center text-darkBg font-black text-sm sm:text-xl shadow-lg shadow-accentGreen/20">
                     <i class="fa-solid fa-chart-line"></i>
                 </div>
-                <span class="text-xl sm:text-2xl font-black tracking-wider bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" style="display:inline-block; padding:4px 0;">CryptoYield</span>
+                <span class="text-base sm:text-2xl font-black tracking-wider bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" style="display:inline-block; padding:4px 0;">CryptoYield</span>
             </div>
 
-            <!-- Desktop Navigation Links - تم إصلاحها -->
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 font-medium text-sm">
-                <a href="#stats" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap" data-ar="إحصائيات الموقع" data-en="Live Stats">إحصائيات الموقع</a>
-                <a href="#plans" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap" data-ar="الخطط" data-en="Plans">الخطط</a>
-                <a href="#calculator" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap" data-ar="حاسبة الأرباح" data-en="Calculator">حاسبة الأرباح</a>
-                <a href="#withdrawMethod" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap" data-ar="طرق السحب" data-en="Payment Methods">طرق السحب</a>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-4 lg:gap-8 font-medium">
+                <a href="#stats" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap text-xs lg:text-sm" data-ar="إحصائيات الموقع" data-en="Live Stats">إحصائيات الموقع</a>
+                <a href="#plans" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap text-xs lg:text-sm" data-ar="الخطط" data-en="Plans">الخطط</a>
+                <a href="#calculator" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap text-xs lg:text-sm" data-ar="حاسبة الأرباح" data-en="Calculator">حاسبة الأرباح</a>
+                <a href="#withdrawMethod" class="text-gray-300 transition hover:text-accentGreen whitespace-nowrap text-xs lg:text-sm" data-ar="طرق السحب" data-en="Payment Methods">طرق السحب</a>
             </nav>
 
             <!-- Language & Action Controls -->
-            <div class="hidden md:flex items-center gap-3 lg:gap-4 shrink-0">
-                <button onclick="toggleLanguage()" class="px-3.5 py-2 rounded-xl bg-gray-800/80 border border-gray-700/80 text-xs font-bold hover:bg-gray-700 transition flex items-center gap-2">
-                    <i class="fa-solid fa-globe text-accentBlue text-base"></i>
+            <div class="hidden md:flex items-center gap-2 lg:gap-4 shrink-0">
+                <button onclick="toggleLanguage()" class="px-3 py-1.5 lg:px-3.5 lg:py-2 rounded-xl bg-gray-800/80 border border-gray-700/80 text-xs font-bold hover:bg-gray-700 transition flex items-center gap-1.5 lg:gap-2">
+                    <i class="fa-solid fa-globe text-accentBlue text-sm lg:text-base"></i>
                     <span id="langText">EN</span>
                 </button>
-                <a href="login.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm shadow-lg shadow-accentGreen/20 hover:opacity-90 transition whitespace-nowrap" data-ar="تسجيل الدخول" data-en="Sign In">
+                <a href="login.html" class="px-3 py-1.5 lg:px-5 lg:py-2.5 rounded-xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-xs lg:text-sm shadow-lg shadow-accentGreen/20 hover:opacity-90 transition whitespace-nowrap" data-ar="تسجيل الدخول" data-en="Sign In">
                     تسجيل الدخول
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <div class="flex md:hidden items-center gap-2 shrink-0">
-                <button onclick="toggleLanguage()" class="px-3 py-2 rounded-lg bg-gray-800/80 border border-gray-700 text-xs font-bold flex items-center gap-1.5">
-                    <i class="fa-solid fa-globe text-accentBlue"></i>
+            <div class="flex md:hidden items-center gap-1.5 shrink-0">
+                <button onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-lg bg-gray-800/80 border border-gray-700 text-[10px] sm:text-xs font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-globe text-accentBlue text-xs"></i>
                     <span id="langTextMobile">EN</span>
                 </button>
-                <button onclick="toggleMobileMenu()" class="w-10 h-10 rounded-xl bg-gray-800/80 border border-gray-700 flex items-center justify-center text-accentGreen text-lg">
+                <button onclick="toggleMobileMenu()" class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gray-800/80 border border-gray-700 flex items-center justify-center text-accentGreen text-sm sm:text-lg">
                     <i class="fa-solid fa-bars" id="menuIcon"></i>
                 </button>
             </div>
@@ -150,7 +273,7 @@
     </header>
 
     <!-- Mobile Side Drawer Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-2xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden">
+    <div id="mobileMenu" class="fixed inset-0 bg-darkBg/95 backdrop-blur-2xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-6 md:hidden w-full overflow-x-hidden">
         <div class="space-y-6 pt-16">
             <div class="flex items-center justify-between pb-4 border-b border-gray-800">
                 <span class="text-lg font-black bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent" style="display:inline-block; padding:4px 0;" data-ar="القائمة الرئيسية" data-en="Main Menu">القائمة الرئيسية</span>
@@ -180,20 +303,20 @@
     </a>
 
     <!-- Main Content Container -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-24">
+    <main class="flex-grow max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12 space-y-12 sm:space-y-24 w-full max-w-full overflow-x-hidden">
 
-        <!-- ================= HERO SECTION (تم الإصلاح) ================= -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center pt-4 sm:pt-6 reveal-on-scroll">
-            <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-right">
+        <!-- ================= HERO SECTION ================= -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-center pt-2 sm:pt-6 reveal-on-scroll w-full max-w-full overflow-x-hidden">
+            <div class="lg:col-span-7 space-y-4 sm:space-y-8 text-center lg:text-right w-full max-w-full">
                 <!-- شارة الحد الأدنى -->
-                <div class="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-accentGreen/10 border border-accentGreen/30 text-accentGreen text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-accentGreen/5">
-                    <i class="fa-solid fa-shield-halved text-base"></i> 
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accentGreen/10 border border-accentGreen/30 text-accentGreen text-[10px] sm:text-sm font-bold tracking-wide shadow-lg shadow-accentGreen/5">
+                    <i class="fa-solid fa-shield-halved text-xs sm:text-base"></i> 
                     <span data-ar="الحد الأدنى للاستثمار والسحب 5 دولار فقط" data-en="Min Investment & Withdrawal only 5 USDT" id="minLimitText">الحد الأدنى للاستثمار والسحب 5 دولار فقط</span>
                 </div>
                 
-                <!-- النص الرئيسي - تم إصلاحه بالكامل -->
-                <h1 class="text-3xl sm:text-5xl font-black py-3">
-                    <span class="bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent hero-title" 
+                <!-- النص الرئيسي -->
+                <h1 class="font-black py-2 w-full max-w-full">
+                    <span class="bg-gradient-to-r from-accentBlue to-accentGreen bg-clip-text text-transparent hero-title w-full" 
                           data-ar="استثمر بذكاء واحصد أرباحك اليومية مع عوائد أسبوعية مضمونة" 
                           data-en="Invest smartly and reap your daily profits with guaranteed weekly returns"
                           id="mainHeroText">
@@ -201,90 +324,90 @@
                     </span>
                 </h1>
                 
-                <p class="text-gray-400 text-sm sm:text-base leading-[1.8] max-w-xl mx-auto lg:mx-0 font-light" data-ar="ابدأ رحلة النجاح المالي معنا. خطط استثمارية مدروسة بأرباح يومية 5%، أو ابدأ مجاناً عبر المهام ونظام الإحالات القوي. السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="Start your financial success journey with us. Smart investment plans with 5% daily profits, or start for free via tasks.">
+                <p class="text-gray-400 text-sm sm:text-base leading-[1.8] max-w-xl mx-auto lg:mx-0 font-light text-responsive" data-ar="ابدأ رحلة النجاح المالي معنا. خطط استثمارية مدروسة بأرباح يومية 5%، أو ابدأ مجاناً عبر المهام ونظام الإحالات القوي. السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="Start your financial success journey with us. Smart investment plans with 5% daily profits, or start for free via tasks and powerful referral system.">
                     ابدأ رحلة النجاح المالي معنا. خطط استثمارية مدروسة بأرباح يومية 5%، أو ابدأ مجاناً عبر المهام ونظام الإحالات القوي. السحب والإيداع حصرياً عبر شبكة USDT TRC20.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
-                    <a href="#plans" class="px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm sm:text-base shadow-xl shadow-accentGreen/25 hover:opacity-90 transition flex items-center justify-center gap-3">
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 pt-2">
+                    <a href="#plans" class="px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-sm sm:text-base shadow-xl shadow-accentGreen/25 hover:opacity-90 transition flex items-center justify-center gap-3">
                         <span data-ar="استعرض الخطط" data-en="Get Started Free">استعرض الخطط</span> <i class="fa-solid fa-arrow-left" id="heroArrow"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Calculator Box -->
-            <div id="calculator" class="lg:col-span-5 bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div id="calculator" class="lg:col-span-5 glass-card border border-gray-800/80 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden w-full max-w-full">
                 <div class="absolute -top-24 -right-24 w-48 h-48 bg-accentGreen/10 rounded-full blur-3xl"></div>
-                <h3 class="text-lg sm:text-xl font-bold mb-6 flex items-center justify-between">
+                <h3 class="text-base sm:text-xl font-bold mb-4 sm:mb-6 flex items-center justify-between">
                     <span data-ar="حاسبة الأرباح اليومية والأسبوعية" data-en="Profit Calculator">حاسبة الأرباح اليومية والأسبوعية</span>
-                    <span class="text-[10px] sm:text-xs bg-darkBg border border-gray-700 text-accentGreen px-2.5 py-1 rounded-xl">TRC20</span>
+                    <span class="text-[10px] sm:text-xs bg-darkBg border border-gray-700 text-accentGreen px-2 py-1 rounded-xl">TRC20</span>
                 </h3>
-                <div class="space-y-5 sm:space-y-6">
+                <div class="space-y-4 sm:space-y-6">
                     <div>
-                        <label class="block text-xs text-gray-400 mb-2 font-medium" data-ar="قيمة الاستثمار (الحد الأدنى 5 دولار)" data-en="Investment Amount (Min $5)" id="calcLabel">قيمة الاستثمار (الحد الأدنى 5 دولار)</label>
-                        <input type="number" id="calcAmount" value="10" min="5" class="w-full bg-darkBg border border-gray-700/80 rounded-xl px-4 py-3 text-sm sm:text-base text-white font-bold focus:outline-none focus:border-accentGreen" oninput="calculateProfit()">
+                        <label class="block text-xs text-gray-400 mb-1.5 sm:mb-2 font-medium" data-ar="قيمة الاستثمار (الحد الأدنى 5 دولار)" data-en="Investment Amount (Min $5)" id="calcLabel">قيمة الاستثمار (الحد الأدنى 5 دولار)</label>
+                        <input type="number" id="calcAmount" value="10" min="5" class="w-full bg-darkBg border border-gray-700/80 rounded-xl px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white font-bold focus:outline-none focus:border-accentGreen" oninput="calculateProfit()">
                     </div>
-                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                        <div class="bg-darkBg/80 border border-gray-800 p-3.5 sm:p-4 rounded-2xl space-y-1">
-                            <span class="text-[11px] sm:text-xs text-gray-400" data-ar="الربح اليومي (5%)" data-en="Daily Profit (5%)">الربح اليومي (5%)</span>
-                            <div id="dailyResult" class="text-lg sm:text-xl font-black text-accentGreen">0.50</div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-darkBg/80 border border-gray-800 p-3 sm:p-4 rounded-2xl space-y-0.5">
+                            <span class="text-[10px] sm:text-xs text-gray-400" data-ar="الربح اليومي (5%)" data-en="Daily Profit (5%)">الربح اليومي (5%)</span>
+                            <div id="dailyResult" class="text-base sm:text-xl font-black text-accentGreen">0.50</div>
                         </div>
-                        <div class="bg-darkBg/80 border border-gray-800 p-3.5 sm:p-4 rounded-2xl space-y-1">
-                            <span class="text-[11px] sm:text-xs text-gray-400" data-ar="المجموع الأسبوعي" data-en="Weekly Total">المجموع الأسبوعي</span>
-                            <div id="weeklyResult" class="text-lg sm:text-xl font-black text-accentBlue">3.50</div>
+                        <div class="bg-darkBg/80 border border-gray-800 p-3 sm:p-4 rounded-2xl space-y-0.5">
+                            <span class="text-[10px] sm:text-xs text-gray-400" data-ar="المجموع الأسبوعي" data-en="Weekly Total">المجموع الأسبوعي</span>
+                            <div id="weeklyResult" class="text-base sm:text-xl font-black text-accentBlue">3.50</div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ================= LIVE STATS CARDS SECTION ================= -->
-        <section id="stats" class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 reveal-on-scroll">
-            <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center gap-4 shadow-xl">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
+        <!-- ================= LIVE STATS ================= -->
+        <section id="stats" class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 reveal-on-scroll w-full max-w-full">
+            <div class="glass-card border border-gray-800/80 rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 shadow-xl">
+                <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-accentBlue/10 text-accentBlue flex items-center justify-center text-base sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-calendar-days"></i>
                 </div>
                 <div>
-                    <span class="text-xs text-gray-400 block" data-ar="أيام عمل الموقع" data-en="Operating Days">أيام عمل المنصة</span>
-                    <span id="statDays" class="text-xl sm:text-2xl font-black text-white">--</span>
+                    <span class="text-[10px] sm:text-xs text-gray-400 block" data-ar="أيام عمل الموقع" data-en="Operating Days">أيام عمل المنصة</span>
+                    <span id="statDays" class="text-lg sm:text-2xl font-black text-white">--</span>
                 </div>
             </div>
-            <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center gap-4 shadow-xl">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
+            <div class="glass-card border border-gray-800/80 rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 shadow-xl">
+                <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-base sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-users"></i>
                 </div>
                 <div>
-                    <span class="text-xs text-gray-400 block" data-ar="إجمالي المستثمرين" data-en="Total Investors">إجمالي المستثمرين</span>
-                    <span id="statInvestors" class="text-xl sm:text-2xl font-black text-accentGreen">--</span>
+                    <span class="text-[10px] sm:text-xs text-gray-400 block" data-ar="إجمالي المستثمرين" data-en="Total Investors">إجمالي المستثمرين</span>
+                    <span id="statInvestors" class="text-lg sm:text-2xl font-black text-accentGreen">--</span>
                 </div>
             </div>
-            <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-6 flex items-center gap-4 shadow-xl">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-accentGold/10 text-accentGold flex items-center justify-center text-xl sm:text-2xl font-bold shrink-0">
+            <div class="glass-card border border-gray-800/80 rounded-3xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 shadow-xl">
+                <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-accentGold/10 text-accentGold flex items-center justify-center text-base sm:text-2xl font-bold shrink-0">
                     <i class="fa-solid fa-money-bill-transfer"></i>
                 </div>
                 <div>
-                    <span class="text-xs text-gray-400 block" data-ar="عمليات السحب اليومية" data-en="Daily Withdrawals">عمليات السحب اليومية</span>
-                    <span id="statWithdrawals" class="text-xl sm:text-2xl font-black text-accentGold">--</span>
+                    <span class="text-[10px] sm:text-xs text-gray-400 block" data-ar="عمليات السحب اليومية" data-en="Daily Withdrawals">عمليات السحب اليومية</span>
+                    <span id="statWithdrawals" class="text-lg sm:text-2xl font-black text-accentGold">--</span>
                 </div>
             </div>
         </section>
 
         <!-- ================= PLANS SECTION ================= -->
-        <section id="plans" class="space-y-8 sm:space-y-10 pt-4 reveal-on-scroll">
-            <div class="text-center space-y-3 max-w-2xl mx-auto">
-                <h2 class="text-2xl sm:text-3xl font-black" data-ar="خطط المنصة (الاستثمارية والمجانية)" data-en="Platform Plans (Investment & Free)">خطط المنصة (الاستثمارية والمجانية)</h2>
-                <p class="text-gray-400 text-xs sm:text-sm font-light" data-ar="اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراُ وبكل سهولة." data-en="Choose the right plan for you and start earning profits immediately.">اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراُ وبكل سهولة.</p>
+        <section id="plans" class="space-y-6 sm:space-y-10 pt-2 sm:pt-4 reveal-on-scroll w-full max-w-full">
+            <div class="text-center space-y-2 max-w-2xl mx-auto">
+                <h2 class="text-xl sm:text-3xl font-black" data-ar="خطط المنصة (الاستثمارية والمجانية)" data-en="Platform Plans (Investment & Free)">خطط المنصة (الاستثمارية والمجانية)</h2>
+                <p class="text-gray-400 text-xs sm:text-sm font-light" data-ar="اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراً وبكل سهولة." data-en="Choose the right plan for you and start earning profits immediately.">اختر الخطة المناسبة لك وابدأ بتحقيق الأرباح فوراً وبكل سهولة.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-5xl mx-auto w-full max-w-full">
                 <!-- Investment Plan Card -->
-                <div class="bg-cardBg/90 backdrop-blur-xl border-2 border-accentGreen/50 rounded-3xl p-6 sm:p-8 space-y-6 relative shadow-xl shadow-accentGreen/5 flex flex-col justify-between">
+                <div class="glass-card border-2 border-accentGreen/50 rounded-3xl p-5 sm:p-8 space-y-6 relative shadow-xl shadow-accentGreen/5 flex flex-col justify-between">
                     <div>
-                        <div class="absolute -top-3 sm:-top-4 right-6 sm:right-8 bg-accentGreen text-darkBg text-[11px] sm:text-xs font-black px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="الخطة الاستثمارية" data-en="Investment Plan">الخطة الاستثمارية</div>
+                        <div class="absolute -top-3 sm:-top-4 right-4 sm:right-8 bg-accentGreen text-darkBg text-[10px] sm:text-xs font-black px-3 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="الخطة الاستثمارية" data-en="Investment Plan">الخطة الاستثمارية</div>
                         <div class="space-y-2">
-                            <h3 class="text-xl sm:text-2xl font-black text-accentGreen" data-ar="خطة الاستثمار الذكي" data-en="Smart Investment Plan">خطة الاستثمار الذكي</h3>
+                            <h3 class="text-lg sm:text-2xl font-black text-accentGreen" data-ar="خطة الاستثمار الذكي" data-en="Smart Investment Plan">خطة الاستثمار الذكي</h3>
                             <p class="text-gray-400 text-xs sm:text-sm" data-ar="عوائد يومية مدروسة بنسبة 5% مع نظام إحالات مربح." data-en="Smart 5% daily returns with a profitable referral system.">عوائد يومية مدروسة بنسبة 5% مع نظام إحالات مربح.</p>
                         </div>
-                        <div class="bg-darkBg/80 p-4 sm:p-5 rounded-2xl border border-gray-800 space-y-3 mt-6">
+                        <div class="bg-darkBg/80 p-4 rounded-2xl border border-gray-800 space-y-2 sm:space-y-3 mt-4 sm:mt-6">
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="الحد الأدنى للإيداع:" data-en="Min Deposit:">الحد الأدنى للإيداع:</span>
                                 <span class="font-bold text-white" id="minDeposit">5 دولار</span>
@@ -306,14 +429,14 @@
                 </div>
 
                 <!-- Free Plan Card -->
-                <div class="bg-cardBg/90 backdrop-blur-xl border border-gray-800 rounded-3xl p-6 sm:p-8 space-y-6 relative flex flex-col justify-between">
+                <div class="glass-card border border-gray-800 rounded-3xl p-5 sm:p-8 space-y-6 relative flex flex-col justify-between">
                     <div>
-                        <div class="absolute -top-3 sm:-top-4 right-6 sm:right-8 bg-accentBlue text-darkBg text-[11px] sm:text-xs font-black px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="بدون رأس مال" data-en="No Capital">بدون رأس مال</div>
+                        <div class="absolute -top-3 sm:-top-4 right-4 sm:right-8 bg-accentBlue text-darkBg text-[10px] sm:text-xs font-black px-3 py-1 sm:px-4 sm:py-1.5 rounded-full uppercase" data-ar="بدون رأس مال" data-en="No Capital">بدون رأس مال</div>
                         <div class="space-y-2">
-                            <h3 class="text-xl sm:text-2xl font-black text-accentBlue" data-ar="الخطة المجانية والمهام" data-en="Free Plan & Tasks">الخطة المجانية والمهام</h3>
+                            <h3 class="text-lg sm:text-2xl font-black text-accentBlue" data-ar="الخطة المجانية والمهام" data-en="Free Plan & Tasks">الخطة المجانية والمهام</h3>
                             <p class="text-gray-400 text-xs sm:text-sm" data-ar="اربح مجاناً من خلال تنفيذ المهام ودعوة الأصدقاء عبر رابط الإحالة." data-en="Earn for free through tasks and inviting friends via referral links.">اربح مجاناً من خلال تنفيذ المهام ودعوة الأصدقاء عبر رابط الإحالة.</p>
                         </div>
-                        <div class="bg-darkBg/80 p-4 sm:p-5 rounded-2xl border border-gray-800 space-y-3 mt-6">
+                        <div class="bg-darkBg/80 p-4 rounded-2xl border border-gray-800 space-y-2 sm:space-y-3 mt-4 sm:mt-6">
                             <div class="flex justify-between text-xs sm:text-sm">
                                 <span class="text-gray-400" data-ar="أرباح المهام اليومية:" data-en="Daily Tasks Earnings:">أرباح المهام اليومية:</span>
                                 <span class="font-bold text-white" data-ar="متجددة يومياً" data-en="Daily Renewed">متجددة يومياً</span>
@@ -336,67 +459,67 @@
             </div>
         </section>
 
-        <!-- ================= WITHDRAWAL METHOD SECTION ================= -->
-        <section id="withdrawMethod" class="bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-6 sm:p-12 text-center space-y-6 max-w-4xl mx-auto reveal-on-scroll">
-            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-3xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-2xl sm:text-3xl mx-auto shadow-lg shadow-accentGreen/10">
+        <!-- ================= WITHDRAWAL METHOD ================= -->
+        <section id="withdrawMethod" class="glass-card border border-gray-800/80 rounded-3xl p-5 sm:p-12 text-center space-y-4 sm:space-y-6 max-w-4xl mx-auto reveal-on-scroll w-full max-w-full">
+            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-3xl bg-accentGreen/10 text-accentGreen flex items-center justify-center text-xl sm:text-3xl mx-auto shadow-lg shadow-accentGreen/10">
                 <i class="fa-solid fa-wallet"></i>
             </div>
-            <h2 class="text-2xl sm:text-3xl font-black" data-ar="طريقة الإيداع والسحب (USDT TRC20)" data-en="Deposit & Withdrawal Method (USDT TRC20)">طريقة الإيداع والسحب (USDT TRC20)</h2>
+            <h2 class="text-xl sm:text-3xl font-black" data-ar="طريقة الإيداع والسحب (USDT TRC20)" data-en="Deposit & Withdrawal Method (USDT TRC20)">طريقة الإيداع والسحب (USDT TRC20)</h2>
             <p class="text-gray-400 text-xs sm:text-sm max-w-xl mx-auto font-light leading-[1.8]" data-ar="نعتمد حصرياً على شبكة تيثر (USDT عبر شبكة TRC20) لضمان السرعة العالية، الأمان التام، والرسوم المنعدمة تقريباً. الحد الأدنى للسحب والإيداع هو 5 USDT فقط." data-en="We rely exclusively on Tether (USDT via TRC20 network) to ensure high speed, absolute security, and almost zero fees. Min withdrawal and deposit is just 5 USDT.">
                 نعتمد حصرياً على شبكة تيثر (USDT عبر شبكة TRC20) لضمان السرعة العالية، الأمان التام، والرسوم المنعدمة تقريباً. الحد الأدنى للسحب والإيداع هو 5 USDT فقط.
             </p>
-            <div class="pt-2 flex flex-wrap justify-center gap-3">
-                <span class="px-4 py-2 rounded-xl bg-darkBg border border-gray-700 text-xs font-bold text-accentGreen flex items-center gap-2">
+            <div class="pt-2 flex flex-wrap justify-center gap-2 sm:gap-3">
+                <span class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-darkBg border border-gray-700 text-[10px] sm:text-xs font-bold text-accentGreen flex items-center gap-1.5 sm:gap-2">
                     <i class="fa-solid fa-check"></i> <span data-ar="سحب فوري وأسبوعي" data-en="Instant & Weekly Payouts">سحب فوري وأسبوعي</span>
                 </span>
-                <span class="px-4 py-2 rounded-xl bg-darkBg border border-gray-700 text-xs font-bold text-accentBlue flex items-center gap-2">
+                <span class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-darkBg border border-gray-700 text-[10px] sm:text-xs font-bold text-accentBlue flex items-center gap-1.5 sm:gap-2">
                     <i class="fa-solid fa-check"></i> <span id="minLimitBadge" data-ar="الحد الأدنى 5 دولار" data-en="Min Limit 5 USDT">الحد الأدنى 5 دولار</span>
                 </span>
             </div>
         </section>
 
-        <!-- ================= AI CHATBOT SECTION ================= -->
-        <section id="supportSection" class="max-w-4xl mx-auto bg-cardBg/90 backdrop-blur-xl border border-gray-800/80 rounded-3xl p-5 sm:p-10 space-y-8 shadow-2xl reveal-on-scroll">
+        <!-- ================= AI CHATBOT ================= -->
+        <section id="supportSection" class="max-w-4xl mx-auto glass-card border border-gray-800/80 rounded-3xl p-4 sm:p-10 space-y-6 sm:space-y-8 shadow-2xl reveal-on-scroll w-full max-w-full">
             <div class="text-center space-y-2">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accentBlue/10 text-accentBlue text-xs font-bold">
+                <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-accentBlue/10 text-accentBlue text-[10px] sm:text-xs font-bold">
                     <i class="fa-solid fa-robot"></i> <span data-ar="مساعد الذكاء الاصطناعي الذكي" data-en="AI Assistant Bot">مساعد الذكاء الاصطناعي الذكي</span>
                 </div>
-                <h2 class="text-xl sm:text-3xl font-black" data-ar="اسأل المساعد الذكي عن المنصة" data-en="Ask the AI Assistant">اسأل المساعد الذكي عن المنصة</h2>
+                <h2 class="text-lg sm:text-3xl font-black" data-ar="اسأل المساعد الذكي عن المنصة" data-en="Ask the AI Assistant">اسأل المساعد الذكي عن المنصة</h2>
                 <p class="text-gray-400 text-xs sm:text-sm" data-ar="اختر أحد الأسئلة أدناه ليعطيك المساعد الإجابة الفورية بالتفصيل." data-en="Choose a question below to get an instant answer.">اختر أحد الأسئلة أدناه ليعطيك المساعد الإجابة الفورية بالتفصيل.</p>
             </div>
 
-            <div class="bg-darkBg border border-gray-800/80 rounded-2xl p-5 sm:p-6 min-h-[140px] flex items-center justify-center text-center relative">
+            <div class="bg-darkBg border border-gray-800/80 rounded-2xl p-4 sm:p-6 min-h-[120px] sm:min-h-[140px] flex items-center justify-center text-center relative">
                 <div id="botResponse" class="text-gray-300 text-xs sm:text-base leading-[1.8]" data-ar="👋 أهلاً بك! أنا مساعد الذكاء الاصطناعي الخاص بالمنصة. اضغط على أي زر من الأسئلة في الأسفل لأقوم بإجابتك فوراً." data-en="👋 Welcome! I am the platform's AI assistant. Click any question button below to get an instant answer.">
                     👋 أهلاً بك! أنا مساعد الذكاء الاصطناعي الخاص بالمنصة. اضغط على أي زر من الأسئلة في الأسفل لأقوم بإجابتك فوراً.
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <button onclick="botAnswer('howItWorks')" class="px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentBlue hover:text-darkBg transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-circle-question text-accentBlue"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
+                <button onclick="botAnswer('howItWorks')" class="px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-[10px] sm:text-xs font-bold hover:bg-accentBlue hover:text-darkBg transition flex items-center justify-center gap-1.5 sm:gap-2">
+                    <i class="fa-solid fa-circle-question text-accentBlue text-xs sm:text-base"></i>
                     <span data-ar="كيف العمل على الموقع؟" data-en="How it works?">كيف العمل على الموقع؟</span>
                 </button>
-                <button onclick="botAnswer('investPlan')" class="px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentGreen hover:text-darkBg transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-chart-pie text-accentGreen"></i>
+                <button onclick="botAnswer('investPlan')" class="px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-[10px] sm:text-xs font-bold hover:bg-accentGreen hover:text-darkBg transition flex items-center justify-center gap-1.5 sm:gap-2">
+                    <i class="fa-solid fa-chart-pie text-accentGreen text-xs sm:text-base"></i>
                     <span data-ar="نظام الاستثمار والأرباح" data-en="Investment Plan">نظام الاستثمار والأرباح</span>
                 </button>
-                <button onclick="botAnswer('withdrawInfo')" class="px-4 py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-xs font-bold hover:bg-accentGold hover:text-darkBg transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-wallet text-accentGold"></i>
+                <button onclick="botAnswer('withdrawInfo')" class="px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-gray-800/60 border border-gray-700 text-[10px] sm:text-xs font-bold hover:bg-accentGold hover:text-darkBg transition flex items-center justify-center gap-1.5 sm:gap-2">
+                    <i class="fa-solid fa-wallet text-accentGold text-xs sm:text-base"></i>
                     <span data-ar="تفاصيل السحب والإيداع" data-en="Withdrawal Info">تفاصيل السحب والإيداع</span>
                 </button>
             </div>
 
-            <hr class="border-gray-800 my-6">
+            <hr class="border-gray-800 my-4 sm:my-6">
 
-            <div class="text-center space-y-4">
-                <h3 class="text-base sm:text-lg font-bold" data-ar="قنوات التواصل الرسمية على تلجرام" data-en="Official Telegram Channels">قنوات التواصل الرسمية على تلجرام</h3>
-                <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-2">
-                    <a href="https://t.me/YourAdminUsername" target="_blank" class="px-6 py-3.5 rounded-xl bg-[#229ED9] text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-500/20 hover:opacity-90 transition flex items-center justify-center gap-2.5">
-                        <i class="fa-brands fa-telegram text-base sm:text-lg"></i>
+            <div class="text-center space-y-3 sm:space-y-4">
+                <h3 class="text-sm sm:text-lg font-bold" data-ar="قنوات التواصل الرسمية على تلجرام" data-en="Official Telegram Channels">قنوات التواصل الرسمية على تلجرام</h3>
+                <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 pt-1 sm:pt-2">
+                    <a href="https://t.me/YourAdminUsername" target="_blank" class="px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-xl bg-[#229ED9] text-white font-bold text-[10px] sm:text-sm shadow-lg shadow-blue-500/20 hover:opacity-90 transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-telegram text-sm sm:text-lg"></i>
                         <span data-ar="حساب المشرف (الدعم الفني)" data-en="Admin Telegram">حساب المشرف (الدعم الفني)</span>
                     </a>
-                    <a href="https://t.me/YourTelegramGroup" target="_blank" class="px-6 py-3.5 rounded-xl bg-gray-800 border border-gray-700 text-white font-bold text-xs sm:text-sm hover:bg-gray-700 transition flex items-center justify-center gap-2.5">
-                        <i class="fa-solid fa-users text-base sm:text-lg text-accentGreen"></i>
+                    <a href="https://t.me/YourTelegramGroup" target="_blank" class="px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-xl bg-gray-800 border border-gray-700 text-white font-bold text-[10px] sm:text-sm hover:bg-gray-700 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-users text-sm sm:text-lg text-accentGreen"></i>
                         <span data-ar="كروب التلجرام العام" data-en="Telegram Group">كروب التلجرام العام</span>
                     </a>
                 </div>
@@ -406,17 +529,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-cardBg/90 border-t border-gray-800/80 mt-16 sm:mt-20 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center text-gray-400 text-xs space-y-4 font-light">
+    <footer class="bg-cardBg/90 border-t border-gray-800/80 mt-12 sm:mt-20 py-6 sm:py-8 w-full max-w-full overflow-x-hidden">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 text-center text-gray-400 text-[10px] sm:text-xs space-y-3 sm:space-y-4 font-light">
             <p data-ar="جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20." data-en="All rights reserved © 2026 CryptoYield - USDT TRC20 only.">جميع الحقوق محفوظة © 2026 CryptoYield - السحب والإيداع حصرياً عبر شبكة USDT TRC20.</p>
-            <div class="flex justify-center gap-6">
-                <a href="https://t.me/YourAdminUsername" target="_blank" class="hover:text-accentGreen transition"><i class="fa-brands fa-telegram text-lg"></i></a>
-                <a href="https://t.me/YourTelegramGroup" target="_blank" class="hover:text-accentBlue transition"><i class="fa-solid fa-users text-lg"></i></a>
+            <div class="flex justify-center gap-4 sm:gap-6">
+                <a href="https://t.me/YourAdminUsername" target="_blank" class="hover:text-accentGreen transition"><i class="fa-brands fa-telegram text-base sm:text-lg"></i></a>
+                <a href="https://t.me/YourTelegramGroup" target="_blank" class="hover:text-accentBlue transition"><i class="fa-solid fa-users text-base sm:text-lg"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Logic -->
+    <!-- JavaScript -->
     <script>
         let currentLang = localStorage.getItem('siteLang') || 'ar';
 
@@ -435,8 +558,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('reveal-visible');
-                    } else {
-                        entry.target.classList.remove('reveal-visible');
                     }
                 });
             }, observerOptions);
@@ -513,16 +634,22 @@
             applyLanguageSettings();
             initDynamicStats();
             calculateProfit();
+            
+            // إعادة تعيين السكرول لمنع السكرول الأفقي
+            document.documentElement.style.overflowX = 'hidden';
+            document.body.style.overflowX = 'hidden';
+            window.scrollTo(0, 0);
         }
 
         function applyLanguageSettings() {
             // تغيير اتجاه الصفحة واللغة
-            document.getElementById('htmlRoot').setAttribute('lang', currentLang);
-            document.getElementById('htmlRoot').setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            const htmlRoot = document.getElementById('htmlRoot');
+            htmlRoot.setAttribute('lang', currentLang);
+            htmlRoot.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
             document.getElementById('langText').innerText = currentLang === 'ar' ? 'EN' : 'AR';
             document.getElementById('langTextMobile').innerText = currentLang === 'ar' ? 'EN' : 'AR';
             
-            // تغيير كل النصوص التي تحمل data-ar و data-en
+            // تغيير كل النصوص
             document.querySelectorAll('[data-ar]').forEach(el => {
                 const text = el.getAttribute(`data-${currentLang}`);
                 if (text) {
@@ -530,7 +657,7 @@
                 }
             });
 
-            // تغيير كلمة "دولار" إلى "USDT" في اللغة الإنجليزية والعكس
+            // تغيير كلمة "دولار" إلى "USDT"
             const currencyElements = [
                 document.getElementById('minDeposit'),
                 document.getElementById('minWithdraw'),
@@ -541,21 +668,22 @@
 
             currencyElements.forEach(el => {
                 if (el) {
+                    const text = el.innerText;
                     if (currentLang === 'ar') {
-                        el.innerText = el.innerText.replace('USDT', 'دولار');
+                        el.innerText = text.replace(/USDT/g, 'دولار');
                         if (!el.innerText.includes('دولار')) {
-                            el.innerText = el.innerText.replace(/\d+\s*USDT/, '5 دولار');
+                            el.innerText = text.replace(/\b\d+\s*USDT\b/, '5 دولار');
                         }
                     } else {
-                        el.innerText = el.innerText.replace('دولار', 'USDT');
+                        el.innerText = text.replace(/دولار/g, 'USDT');
                         if (!el.innerText.includes('USDT')) {
-                            el.innerText = el.innerText.replace(/\d+\s*دولار/, '5 USDT');
+                            el.innerText = text.replace(/\b\d+\s*دولار\b/, '5 USDT');
                         }
                     }
                 }
             });
 
-            // تحديث النص الرئيسي بشكل خاص (لأنه داخل span)
+            // تحديث النص الرئيسي
             const heroText = document.getElementById('mainHeroText');
             if (heroText) {
                 const text = heroText.getAttribute(`data-${currentLang}`);
@@ -572,6 +700,12 @@
                     calcLabel.innerText = text;
                 }
             }
+
+            // منع السكرول الأفقي
+            document.documentElement.style.overflowX = 'hidden';
+            document.body.style.overflowX = 'hidden';
+            document.documentElement.style.maxWidth = '100vw';
+            document.body.style.maxWidth = '100vw';
         }
     </script>
 </body>
