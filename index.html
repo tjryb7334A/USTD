@@ -28,202 +28,391 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* ====== الإعدادات الأساسية ====== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
 
-        body {
-            font-family: 'Tajawal', 'Inter', sans-serif;
-            line-height: 1.8;
-            overflow-x: hidden !important;
-            max-width: 100vw;
-            width: 100%;
-            background: #070A0F;
-        }
+body {
+    font-family: 'Tajawal', 'Inter', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    max-width: 100vw;
+    width: 100%;
+    background: #070A0F;
+    -webkit-overflow-scrolling: touch;
+}
 
-        /* ====== سكرول خفيف ====== */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #070A0F;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #00FF66;
-            border-radius: 10px;
-        }
+/* ====== سكرول خفيف ====== */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: #070A0F;
+}
+::-webkit-scrollbar-thumb {
+    background: #00FF66;
+    border-radius: 10px;
+}
 
-        /* ====== تكبير الخط على الهواتف ====== */
-        @media (max-width: 640px) {
-            html { font-size: 18px !important; }
-            body { font-size: 17px !important; line-height: 1.8 !important; }
-            .hero-title { font-size: 2.2rem !important; line-height: 1.7 !important; }
-            h1 { font-size: 2.2rem !important; }
-            h2 { font-size: 1.8rem !important; }
-            h3 { font-size: 1.3rem !important; }
-            p, li, span, a, button, label { font-size: 1rem !important; line-height: 1.8 !important; }
-            .text-xs { font-size: 0.85rem !important; }
-            .text-sm { font-size: 0.95rem !important; }
-            .text-base { font-size: 1.05rem !important; }
-            .text-lg { font-size: 1.25rem !important; }
-            .text-xl { font-size: 1.5rem !important; }
-            .text-2xl { font-size: 1.8rem !important; }
-            .text-3xl { font-size: 2rem !important; }
-            html[lang="en"] body { font-size: 17px !important; }
-            html[lang="en"] .hero-title { font-size: 2rem !important; }
-            html[lang="en"] h1 { font-size: 2rem !important; }
-        }
+/* ====== تكبير الخط على الهواتف ====== */
+@media (max-width: 640px) {
+    html { font-size: 18px !important; }
+    body { font-size: 17px !important; line-height: 1.8 !important; }
+    .hero-title { font-size: 2.2rem !important; line-height: 1.7 !important; }
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    h3 { font-size: 1.3rem !important; }
+    p, li, span, a, button, label { font-size: 1rem !important; line-height: 1.8 !important; }
+    .text-xs { font-size: 0.85rem !important; }
+    .text-sm { font-size: 0.95rem !important; }
+    .text-base { font-size: 1.05rem !important; }
+    .text-lg { font-size: 1.25rem !important; }
+    .text-xl { font-size: 1.5rem !important; }
+    .text-2xl { font-size: 1.8rem !important; }
+    .text-3xl { font-size: 2rem !important; }
+    html[lang="en"] body { font-size: 17px !important; }
+    html[lang="en"] .hero-title { font-size: 2rem !important; }
+    html[lang="en"] h1 { font-size: 2rem !important; }
+}
 
-        @media (max-width: 400px) {
-            html { font-size: 17px !important; }
-            body { font-size: 16px !important; }
-            .hero-title { font-size: 1.8rem !important; }
-            h1 { font-size: 1.8rem !important; }
-        }
+@media (max-width: 400px) {
+    html { font-size: 17px !important; }
+    body { font-size: 16px !important; }
+    .hero-title { font-size: 1.8rem !important; }
+    h1 { font-size: 1.8rem !important; }
+}
 
-        /* ====== خلفية مبسطة وسريعة ====== */
-        .cyber-bg {
-            background-color: #070A0F;
-            background-image: 
-                radial-gradient(ellipse at 20% 50%, rgba(0, 209, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(0, 255, 102, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 100%, rgba(255, 215, 0, 0.03) 0%, transparent 40%);
-            background-size: 100% 100%, 100% 100%, 100% 100%;
-            min-height: 100vh;
-            position: relative;
-        }
+/* ====== خلفية مبسطة وسريعة ====== */
+.cyber-bg {
+    background-color: #070A0F;
+    background-image: 
+        radial-gradient(ellipse at 20% 50%, rgba(0, 209, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(0, 255, 102, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(255, 215, 0, 0.03) 0%, transparent 40%);
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+    min-height: 100vh;
+    position: relative;
+}
 
-        /* ====== نجوم خفيفة (بدون أنيميشن ثقيل) ====== */
-        .cyber-bg::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.2), transparent),
-                radial-gradient(1.5px 1.5px at 40% 70%, rgba(255,255,255,0.15), transparent),
-                radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.25), transparent),
-                radial-gradient(1.5px 1.5px at 80% 80%, rgba(255,255,255,0.15), transparent),
-                radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.2), transparent),
-                radial-gradient(1.5px 1.5px at 90% 10%, rgba(255,255,255,0.15), transparent);
-            background-size: 100% 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
+/* ====== نجوم خفيفة (بدون أنيميشن ثقيل) ====== */
+.cyber-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(1.5px 1.5px at 20% 30%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 40% 70%, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.25), transparent),
+        radial-gradient(1.5px 1.5px at 80% 80%, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 90% 10%, rgba(255,255,255,0.15), transparent);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+}
 
-        /* ====== إصلاح النصوص ====== */
-        h1, h2, h3, p, span, a, div, button, li {
-            line-height: 1.8 !important;
-            overflow: visible !important;
-        }
+/* ====== إصلاح النصوص ====== */
+h1, h2, h3, p, span, a, div, button, li {
+    line-height: 1.8 !important;
+    overflow: visible !important;
+}
 
-        .hero-title {
-            display: inline-block;
-            padding: 8px 0;
-            line-height: 1.8 !important;
-            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
-            word-break: break-word;
-            max-width: 100%;
-        }
+.hero-title {
+    display: inline-block;
+    padding: 8px 0;
+    line-height: 1.8 !important;
+    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    word-break: break-word;
+    max-width: 100%;
+}
 
-        /* ====== الناف بار ====== */
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: nowrap;
-            align-items: center;
-        }
-        .nav-links a {
-            white-space: nowrap;
-            font-size: 0.9rem;
-        }
+/* ====== الناف بار ====== */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.nav-links a {
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
 
-        @media (max-width: 1024px) {
-            .nav-links a { font-size: 0.75rem; }
-            .nav-links { gap: 1rem; }
-        }
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-        }
+@media (max-width: 1024px) {
+    .nav-links a { font-size: 0.75rem; }
+    .nav-links { gap: 1rem; }
+}
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+}
 
-        .container-responsive {
-            width: 100%;
-            max-width: 100vw;
-            overflow-x: hidden;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        @media (max-width: 640px) {
-            .container-responsive {
-                padding-left: 0.75rem;
-                padding-right: 0.75rem;
-            }
-        }
+.container-responsive {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+@media (max-width: 640px) {
+    .container-responsive {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
 
-        html[lang="en"] body {
-            font-family: 'Inter', 'Tajawal', sans-serif;
-        }
-        html[lang="en"] .hero-title {
-            font-size: clamp(2.2rem, 5.5vw, 4rem);
-            letter-spacing: -0.02em;
-        }
+html[lang="en"] body {
+    font-family: 'Inter', 'Tajawal', sans-serif;
+}
+html[lang="en"] .hero-title {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    letter-spacing: -0.02em;
+}
 
-        /* ====== Scroll Animation (خفيف) ====== */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            will-change: opacity, transform;
-        }
-        .reveal-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* ====== Scroll Animation (خفيف) ====== */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    will-change: opacity, transform;
+}
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .overflow-x-hidden { overflow-x: hidden !important; }
-        .max-w-full { max-width: 100% !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.max-w-full { max-width: 100% !important; }
 
-        /* ====== Glass Card (خفيف) ====== */
-        .glass-card {
-            background: rgba(15, 21, 30, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
+/* ====== Glass Card (خفيف) ====== */
+.glass-card {
+    background: rgba(15, 21, 30, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
 
-        /* ====== أزرار الخطط (خفيفة) ====== */
-        .plan-btn {
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .plan-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 255, 102, 0.2);
-        }
-        .plan-btn-free:hover {
-            box-shadow: 0 8px 25px rgba(0, 209, 255, 0.2);
-        }
+/* ====== أزرار الخطط (خفيفة) ====== */
+.plan-btn {
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+.plan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 102, 0.2);
+}
+.plan-btn-free:hover {
+    box-shadow: 0 8px 25px rgba(0, 209, 255, 0.2);
+}
 
-        .plan-card {
-            transition: all 0.2s ease;
-        }
-        .plan-card:hover {
-            transform: translateY(-3px);
-        }
+.plan-card {
+    transition: all 0.2s ease;
+}
+.plan-card:hover {
+    transform: translateY(-3px);
+}
 
-        /* ====== تحسين الأداء ====== */
-        .no-animation {
-            animation: none !important;
-        }
+/* ====== تحسين الأداء ====== */
+.no-animation {
+    animation: none !important;
+}
+
+/* ============================================================
+   ====== حل جذري لمشكلة التمرير على جميع الشاشات ======
+   ============================================================ */
+
+/* إعادة ضبط كل شيء */
+html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+/* منع أي عنصر من التجاوز */
+* {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+}
+
+/* إصلاح العناصر التي تتجاوز */
+img, svg, video, iframe, table {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* ====== إصلاح خاص للشاشات بين 600-700px ====== */
+@media (min-width: 600px) and (max-width: 700px) {
+    /* إعادة ضبط html و body */
+    html, body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* تعطيل النجوم */
+    .cyber-bg::before {
+        display: none !important;
+    }
+    
+    /* تبسيط الخلفية */
+    .cyber-bg {
+        background: #070A0F !important;
+        background-image: none !important;
+    }
+    
+    /* تعطيل الـ blur */
+    .glass-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(15, 21, 30, 0.95) !important;
+    }
+    
+    /* تعطيل الأنيميشن */
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        will-change: auto !important;
+    }
+    
+    /* إجبار كل العناصر على عدم التجاوز */
+    .container-responsive,
+    .max-w-7xl,
+    .max-w-full,
+    .max-w-5xl,
+    .max-w-4xl,
+    .glass-card,
+    .plan-card,
+    main,
+    section,
+    div,
+    article,
+    header,
+    footer {
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    /* تصحيح النص الطويل */
+    .hero-title {
+        font-size: 1.8rem !important;
+        word-break: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* تصحيح الشبكات */
+    .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    /* تصحيح الصفوف */
+    .flex {
+        flex-wrap: wrap !important;
+    }
+    
+    /* منع أي عنصر من الخروج */
+    .inline-flex {
+        flex-wrap: wrap !important;
+    }
+    
+    /* تصحيح القائمة المنسدلة */
+    .relative {
+        position: relative !important;
+    }
+    
+    #langMenu, #langMenuMobile {
+        min-width: 100px !important;
+        right: 0 !important;
+        left: auto !important;
+    }
+    
+    /* إصلاح حجم الخط */
+    html { font-size: 16px !important; }
+    body { font-size: 15px !important; }
+    
+    /* إصلاح الهوامش */
+    .max-w-7xl {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    
+    /* تصحيح البادج */
+    .inline-flex {
+        max-width: 100% !important;
+    }
+}
+
+/* ====== إصلاح للهواتف بشكل عام ====== */
+@media (max-width: 768px) {
+    .cyber-bg::before {
+        display: none !important;
+    }
+    
+    .glass-card {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(15, 21, 30, 0.95) !important;
+    }
+    
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        will-change: auto !important;
+    }
+    
+    * {
+        max-width: 100vw !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    .container-responsive, .max-w-7xl {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+}
+
+/* ====== إصلاح للشاشات الصغيرة جداً ====== */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .glass-card {
+        padding: 1rem !important;
+    }
+    
+    .grid {
+        gap: 0.75rem !important;
+    }
+}
     </style>
 </head>
 <body class="cyber-bg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden max-w-full">
