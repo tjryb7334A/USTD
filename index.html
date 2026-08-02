@@ -27,23 +27,29 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* ====== الإعدادات الأساسية ====== */
+/* ====== الإعدادات الأساسية ====== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
 }
 
 html {
     scroll-behavior: smooth;
     overflow-x: hidden !important;
     overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    -webkit-overflow-scrolling: touch !important;
 }
 
 body {
     font-family: 'Tajawal', 'Inter', sans-serif;
-    line-height: 1.8;
+    line-height: 1.6;
     overflow-x: hidden !important;
     overflow-y: auto !important;
     max-width: 100vw;
@@ -64,32 +70,35 @@ body {
     border-radius: 10px;
 }
 
-/* ====== تكبير الخط على الهواتف ====== */
+/* ====== تكبير الخط على الهواتف (معدل) ====== */
 @media (max-width: 640px) {
-    html { font-size: 18px !important; }
-    body { font-size: 17px !important; line-height: 1.8 !important; }
-    .hero-title { font-size: 2.2rem !important; line-height: 1.7 !important; }
-    h1 { font-size: 2.2rem !important; }
-    h2 { font-size: 1.8rem !important; }
-    h3 { font-size: 1.3rem !important; }
-    p, li, span, a, button, label { font-size: 1rem !important; line-height: 1.8 !important; }
-    .text-xs { font-size: 0.85rem !important; }
-    .text-sm { font-size: 0.95rem !important; }
-    .text-base { font-size: 1.05rem !important; }
-    .text-lg { font-size: 1.25rem !important; }
-    .text-xl { font-size: 1.5rem !important; }
-    .text-2xl { font-size: 1.8rem !important; }
-    .text-3xl { font-size: 2rem !important; }
-    html[lang="en"] body { font-size: 17px !important; }
-    html[lang="en"] .hero-title { font-size: 2rem !important; }
-    html[lang="en"] h1 { font-size: 2rem !important; }
+    html { font-size: 16px !important; }
+    body { font-size: 15px !important; line-height: 1.6 !important; }
+    .hero-title { font-size: 1.8rem !important; line-height: 1.5 !important; }
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.2rem !important; }
+    p, li, span, a, button, label { font-size: 0.9rem !important; line-height: 1.6 !important; }
+    .text-xs { font-size: 0.75rem !important; }
+    .text-sm { font-size: 0.85rem !important; }
+    .text-base { font-size: 0.95rem !important; }
+    .text-lg { font-size: 1.1rem !important; }
+    .text-xl { font-size: 1.3rem !important; }
+    .text-2xl { font-size: 1.5rem !important; }
+    .text-3xl { font-size: 1.8rem !important; }
+    html[lang="en"] body { font-size: 15px !important; }
+    html[lang="en"] .hero-title { font-size: 1.8rem !important; }
+    html[lang="en"] h1 { font-size: 1.8rem !important; }
 }
 
 @media (max-width: 400px) {
-    html { font-size: 17px !important; }
-    body { font-size: 16px !important; }
-    .hero-title { font-size: 1.8rem !important; }
-    h1 { font-size: 1.8rem !important; }
+    html { font-size: 15px !important; }
+    body { font-size: 14px !important; }
+    .hero-title { font-size: 1.5rem !important; }
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.3rem !important; }
+    h3 { font-size: 1.1rem !important; }
+    p, li, span, a, button, label { font-size: 0.85rem !important; }
 }
 
 /* ====== خلفية مبسطة وسريعة ====== */
@@ -104,7 +113,7 @@ body {
     position: relative;
 }
 
-/* ====== نجوم خفيفة (بدون أنيميشن ثقيل) ====== */
+/* ====== نجوم خفيفة ====== */
 .cyber-bg::before {
     content: '';
     position: fixed;
@@ -126,15 +135,15 @@ body {
 
 /* ====== إصلاح النصوص ====== */
 h1, h2, h3, p, span, a, div, button, li {
-    line-height: 1.8 !important;
+    line-height: 1.6 !important;
     overflow: visible !important;
 }
 
 .hero-title {
     display: inline-block;
-    padding: 8px 0;
-    line-height: 1.8 !important;
-    font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+    padding: 6px 0;
+    line-height: 1.5 !important;
+    font-size: clamp(1.8rem, 4.5vw, 3.5rem);
     word-break: break-word;
     max-width: 100%;
 }
@@ -148,12 +157,12 @@ h1, h2, h3, p, span, a, div, button, li {
 }
 .nav-links a {
     white-space: nowrap;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 @media (max-width: 1024px) {
-    .nav-links a { font-size: 0.75rem; }
-    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.7rem; }
+    .nav-links { gap: 0.8rem; }
 }
 @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -168,8 +177,8 @@ h1, h2, h3, p, span, a, div, button, li {
 }
 @media (max-width: 640px) {
     .container-responsive {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
+        padding-left: 0.6rem;
+        padding-right: 0.6rem;
     }
 }
 
@@ -177,26 +186,43 @@ html[lang="en"] body {
     font-family: 'Inter', 'Tajawal', sans-serif;
 }
 html[lang="en"] .hero-title {
-    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-size: clamp(1.8rem, 4.5vw, 3.8rem);
     letter-spacing: -0.02em;
 }
 
-/* ====== Scroll Animation (خفيف) ====== */
+/* ============================================================
+   ====== أنيميشن التمرير (يعمل على جميع الأجهزة) ======
+   ============================================================ */
+
+/* الحالة الافتراضية: الكروت تكون بعيدة جهة اليمين */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    will-change: opacity, transform;
+    transform: translateX(80px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
 }
-.reveal-visible {
+
+/* عند النزول للأسفل: الكرت يظهر في مكانه */
+.reveal-on-scroll.reveal-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
-.overflow-x-hidden { overflow-x: hidden !important; }
-.max-w-full { max-width: 100% !important; }
+/* عند الصعود للأعلى: الكرت يرجع لليسار (يختفي) */
+.reveal-on-scroll:not(.reveal-visible) {
+    opacity: 0;
+    transform: translateX(-80px);
+}
 
-/* ====== Glass Card (خفيف) ====== */
+/* ====== تأخيرات متدرجة للكروت ====== */
+.stagger-delay-1 { transition-delay: 0.1s; }
+.stagger-delay-2 { transition-delay: 0.2s; }
+.stagger-delay-3 { transition-delay: 0.3s; }
+.stagger-delay-4 { transition-delay: 0.4s; }
+.stagger-delay-5 { transition-delay: 0.5s; }
+.stagger-delay-6 { transition-delay: 0.6s; }
+
+/* ====== Glass Card ====== */
 .glass-card {
     background: rgba(15, 21, 30, 0.85);
     backdrop-filter: blur(10px);
@@ -204,7 +230,7 @@ html[lang="en"] .hero-title {
     border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ====== أزرار الخطط (خفيفة) ====== */
+/* ====== أزرار الخطط ====== */
 .plan-btn {
     transition: all 0.2s ease;
     position: relative;
@@ -225,78 +251,25 @@ html[lang="en"] .hero-title {
     transform: translateY(-3px);
 }
 
-/* ====== تحسين الأداء ====== */
-.no-animation {
-    animation: none !important;
-}
+/* ====== إصلاح مشكلة التمرير على الهواتف ====== */
 
-/* ============================================================
-   ====== حل جذري لمشكلة التمرير على جميع الشاشات ======
-   ============================================================ */
-
-/* إعادة ضبط كل شيء */
-html, body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    position: relative !important;
-    -webkit-overflow-scrolling: touch !important;
-}
-
-/* منع أي عنصر من التجاوز */
-* {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-    overflow-wrap: break-word !important;
-    word-wrap: break-word !important;
-}
-
-/* إصلاح العناصر التي تتجاوز */
-img, svg, video, iframe, table {
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/* ====== إصلاح خاص للشاشات بين 600-700px ====== */
+/* إصلاح خاص للشاشات بين 600-700px */
 @media (min-width: 600px) and (max-width: 700px) {
-    /* إعادة ضبط html و body */
-    html, body {
-        overflow-x: hidden !important;
-        overflow-y: auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        position: relative !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-    
-    /* تعطيل النجوم */
     .cyber-bg::before {
         display: none !important;
     }
     
-    /* تبسيط الخلفية */
     .cyber-bg {
         background: #070A0F !important;
         background-image: none !important;
     }
     
-    /* تعطيل الـ blur */
     .glass-card {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         background: rgba(15, 21, 30, 0.95) !important;
     }
     
-    /* تعطيل الأنيميشن */
-    .reveal-on-scroll {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-        will-change: auto !important;
-    }
-    
-    /* إجبار كل العناصر على عدم التجاوز */
     .container-responsive,
     .max-w-7xl,
     .max-w-full,
@@ -306,45 +279,34 @@ img, svg, video, iframe, table {
     .plan-card,
     main,
     section,
-    div,
-    article,
     header,
     footer {
         max-width: 100% !important;
         width: 100% !important;
         overflow-x: hidden !important;
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
     
-    /* تصحيح النص الطويل */
     .hero-title {
-        font-size: 1.8rem !important;
+        font-size: 1.6rem !important;
         word-break: break-word !important;
         white-space: normal !important;
     }
     
-    /* تصحيح الشبكات */
     .grid {
         grid-template-columns: 1fr !important;
-        gap: 1rem !important;
+        gap: 0.8rem !important;
     }
     
-    /* تصحيح الصفوف */
     .flex {
         flex-wrap: wrap !important;
     }
     
-    /* منع أي عنصر من الخروج */
     .inline-flex {
         flex-wrap: wrap !important;
-    }
-    
-    /* تصحيح القائمة المنسدلة */
-    .relative {
-        position: relative !important;
     }
     
     #langMenu, #langMenuMobile {
@@ -353,24 +315,13 @@ img, svg, video, iframe, table {
         left: auto !important;
     }
     
-    /* إصلاح حجم الخط */
-    html { font-size: 16px !important; }
-    body { font-size: 15px !important; }
-    
-    /* إصلاح الهوامش */
-    .max-w-7xl {
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
-    }
-    
-    /* تصحيح البادج */
-    .inline-flex {
-        max-width: 100% !important;
-    }
+    html { font-size: 15px !important; }
+    body { font-size: 14px !important; }
 }
 
-/* ====== إصلاح للهواتف بشكل عام ====== */
+/* ====== تحسينات للهواتف ====== */
 @media (max-width: 768px) {
+    /* تعطيل المؤثرات الثقيلة */
     .cyber-bg::before {
         display: none !important;
     }
@@ -381,38 +332,74 @@ img, svg, video, iframe, table {
         background: rgba(15, 21, 30, 0.95) !important;
     }
     
-    .reveal-on-scroll {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-        will-change: auto !important;
-    }
-    
-    * {
-        max-width: 100vw !important;
-        overflow-wrap: break-word !important;
-    }
-    
     .container-responsive, .max-w-7xl {
-        padding-left: 0.75rem !important;
-        padding-right: 0.75rem !important;
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
+    }
+    
+    /* تحسين الأنيميشن للهواتف */
+    .reveal-on-scroll {
+        transform: translateX(40px) !important;
+        transition-duration: 0.6s !important;
+    }
+    
+    .reveal-on-scroll.reveal-visible {
+        transform: translateX(0) !important;
+    }
+    
+    .reveal-on-scroll:not(.reveal-visible) {
+        transform: translateX(-40px) !important;
     }
 }
 
-/* ====== إصلاح للشاشات الصغيرة جداً ====== */
+/* ====== تحسينات للشاشات الصغيرة جداً ====== */
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 1.5rem !important;
+        font-size: 1.3rem !important;
     }
     
     .glass-card {
-        padding: 1rem !important;
+        padding: 0.8rem !important;
     }
     
     .grid {
-        gap: 0.75rem !important;
+        gap: 0.6rem !important;
+    }
+    
+    .plan-card {
+        padding: 1rem !important;
+    }
+    
+    /* تصغير مسافة الحركة للشاشات الصغيرة */
+    .reveal-on-scroll {
+        transform: translateX(25px) !important;
+        transition-duration: 0.5s !important;
+    }
+    
+    .reveal-on-scroll.reveal-visible {
+        transform: translateX(0) !important;
+    }
+    
+    .reveal-on-scroll:not(.reveal-visible) {
+        transform: translateX(-25px) !important;
     }
 }
+
+/* ====== تحسينات للشاشات الكبيرة ====== */
+@media (min-width: 1200px) {
+    html { font-size: 18px !important; }
+    body { font-size: 17px !important; }
+}
+
+/* ====== تعطيل الأنيميشن للأجهزة الضعيفة ====== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
     </style>
 </head>
 <body class="cyber-bg text-white min-h-screen flex flex-col selection:bg-accentGreen selection:text-black overflow-x-hidden max-w-full">
@@ -443,7 +430,7 @@ img, svg, video, iframe, table {
                     <span id="langText">EN</span>
                 </button>
                 <a href="login.html" class="px-3 py-1.5 lg:px-5 lg:py-2.5 rounded-xl bg-gradient-to-r from-accentGreen to-emerald-500 text-darkBg font-bold text-xs lg:text-sm shadow-lg shadow-accentGreen/20 hover:opacity-90 transition whitespace-nowrap" data-ar="تسجيل الدخول" data-en="Sign In">
-                    تسجيل الدخول
+                    تسجيل 
                 </a>
             </div>
 
